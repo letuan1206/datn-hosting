@@ -1,0 +1,90 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+  <div class="box-header">
+    <h2>Điểm danh nhận thưởng</h2>
+  </div>
+  <div class="box-divider m-a-0"></div>
+</div>
+<div class="alert alert-info">
+  1. Bạn điểm danh 1 lần/ngày. Mỗi lần điểm danh bạn sẽ nhận được ngay bạc khóa và 1 point điểm danh. Bạn cần điểm danh tại
+  máy có đăng ký bảo vệ hoặc có IP<br>
+  <!--2. Cuối tháng nếu bạn đạt trên 25 point điểm danh sẽ được sử dụng 1 món vũ khí rồng sử dụng trong 3 ngày. Point sẽ về 0 khi hết tháng<br>-->
+  2. Bạn điểm danh liên tiếp đạt mốc sẽ được nhiều bạc khóa hơn. Mốc được kéo dài sang tháng sau:<br> _ Quà điểm danh được
+  10 bạc khóa/ 1 lượt / 1 ngày<br> _ Điểm danh 7 ngày liên tiếp: Từ ngày thứ 8 được 20 bạc khóa /1 lượt /1 ngày<br> _ Điểm
+  danh 14 ngày liên tiếp: Từ ngày thứ 15 được 30 bạc khóa /1 lượt /1 ngày<br> _ Điểm danh 21 ngày liên tiếp: Từ ngày thứ
+  22 được 40 bạc khóa /1 lượt /1 ngày<br> _ Điểm danh 28 ngày liên tiếp: Từ ngày thứ 29 được 50 bạc khóa /1 lượt /1 ngày.
+  Đến ngày thứ 39 sẽ trở về mốc đầu tiên<br> _ Nếu bạn quên điểm danh 1 ngày sẽ trở về mốc đầu tiên<br>
+</div>
+<div class="">
+    <div class="alert alert-warning"><i
+                            class="fa fa-2x fa-check-circle vd_green"></i> Bạn đã điểm danh liên tiếp: <b>{{stillEvent}}
+                    ngày</b>, đừng quên điểm danh ngày mai để tích lũy đến mức thưởng cao hơn
+    </div>
+    <div class="row m-b">
+      <div class="col-sm-12 m-b-sm">
+        <!-- <button type="button" class="btn btn-sm white" data-toggle="modal" data-target="#list" ui-toggle-class="modal-open-aside" ui-target="body">
+          <i class="fa fa-bars m-r-xs"></i> List
+        </button> -->
+        <button type="button" tooltip="Click vào đây để báo danh" tooltip-placement="bottom" class="btn btn-sm primary" ng-click="submit()">
+          <i class="fa fa-plus m-r-xs"></i> Báo dánh nhận thưởng
+        </button>
+        <span>Tổng số lần điểm danh trong tháng: <b>{{eventCount}}</b> ngày điểm danh </div>
+      </div>
+      <div class="col-sm-8 text-sm-right">
+        <!-- <button type="button" class="btn btn-sm white" ng-click="today()">today</button>
+        <div class="btn-group m-l-xs">
+          <button class="btn btn-sm white" ng-click="changeView('agendaDay')">Day</button>
+          <button class="btn btn-sm white" ng-click="changeView('agendaWeek')">Week</button>
+          <button class="btn btn-sm white" ng-click="changeView('month')">Month</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="pos-rlt">
+      <div class="fc-overlay">
+        <div class="panel dark-white b-a pos-rlt">
+          <span class="arrow b-white"></span>
+          <div class="h5 _300 m-b-sm b-b p-b-sm">{{event.title}}</div>
+          <div>
+            <i class="fa fa-fw fa-calendar-o text-muted m-r-xs"></i> {{event.start | date:'medium'}}
+          </div>
+          <div class="ng-hide" ng-show='event.end'>
+            <i class="fa fa-fw fa-clock-o text-muted m-r-xs"></i> {{event.end | date:'medium'}}
+          </div>
+          <div class="ng-hide" ng-show='event.location'>
+            <i class="fa fa-fw fa-map-marker text-muted m-r-xs"></i> {{event.location}}
+          </div>
+          <div class="m-t-sm">{{event.info}}</div>
+          <div class="m-t-sm">{{event.url}}</div>
+        </div>
+      </div>
+      <div class="calendar" ng-model="eventSources" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>
+    </div>
+</div>
+
+<div class="modal fade inactive" id="list" data-backdrop="true">
+  <div class="right w-xxl white b-l">
+      <div class="row-col">
+        <a data-dismiss="modal" class="pull-right text-muted text-lg p-a-sm m-r-sm">&times;</a>
+        <div class="p-a b-b">
+          <strong>List</strong>
+        </div>
+        <div class="row-row dker">
+          <div class="row-body">
+            <div class="row-inner">
+              <div class="p-a">
+                <div class="list-group">
+                  <div ng-repeat="e in events" class="list-group-item">
+                    <input ng-model="e.title" class="form-control no-border no-bg p-a-0 text-sm">
+                    <a class="pull-right text-xs" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+                    <div class="text-xs"><span class="w-8 b-a inline rounded m-r-sm {{e.className[0]}}"></span>{{e.start | date:"MMM dd"}} <span ng-show="e.end">-</span> {{e.end | date:"MMM dd"}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

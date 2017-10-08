@@ -1,0 +1,61 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+
+    <div class="box-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="b-b b-blue nav-active-blue">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href data-toggle="tab" data-target="#tab1">Sử dụng SMS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href data-toggle="tab" data-target="#tab2">Sử dụng thông tin cá nhân</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content p-a m-b-md">
+                    <div class="tab-pane animated fadeIn text-muted active" id="tab1">
+                        <div class="form-group row">
+                            <label class="col-sm-3 form-control-label">{{lable_text}}</label>
+                            <div class="col-sm-7">
+                                <input type="{{input_type}}" ng-model="info_change" class="form-control" placeholder="{{placeholder_text}}">
+                            </div>
+                        </div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="p-a text-center">
+                            <button type="submit" class="btn btn-info" ng-click="submitSMS()">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane animated fadeIn text-muted" id="tab2">
+                        <div class="form-group row">
+                            <label class="col-sm-3 form-control-label">Mật khẩu cấp 1 mới</label>
+                            <div class="col-sm-7">
+                                <input type="password" ng-model="info_change" class="form-control" placeholder="Mật khẩu cấp 1 mới">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-9 push-md-3 block _500">Thông tin xác thực</label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 form-control-label">Mật khẩu cấp 2</label>
+                            <div class="col-sm-7">
+                                <input type="password" ng-model="info_change" class="form-control" placeholder="Mật khẩu cấp 2">
+                            </div>
+                        </div>
+                        <div class="box-divider m-a-0"></div>
+                        <div class="p-a text-center">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

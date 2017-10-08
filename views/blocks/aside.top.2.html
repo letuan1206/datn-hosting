@@ -1,0 +1,24 @@
+<div ng-show="isLogin">
+    <div ng-controller="TooltipCtl" class="box">
+        <div class="box-divider m-a-0"></div>
+        <select ng-model="$root.charChoose"
+                class="select-char"
+                ng-options="char.Name for char in listChar"
+                ng-change="updateChar()">
+        </select>
+        <div class="content-character" tooltip-placement="bottom"
+             uib-tooltip="Click để cập nhật thông tin!" ng-click="updateChar()">
+            <a herf="" class="list-left"><img
+                    src="{{charChoose.avatar}}" class="box-avatar-char-choise"> <i
+                    class="on b-white bottom"></i>
+                <div class="list-body">
+                    <div class="character-name" ><a href="">{{charChoose.Name}}</a></div>
+                    <small class="text-muted text-ellipsis">Level: {{charChoose.cLevel}}</small>
+                    <small class="text-muted text-ellipsis">RS / RL: {{charChoose.Resets}} /
+                        {{charChoose.Relifes}}
+                    </small>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Cộng điểm cho nhân vật {{charChoose.Name}}</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+
+    <div class="box-body">
+
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Đổi nhân vật</label>
+            <div class="col-sm-7">
+                <span class="label green-500" ng-show="charChoose.doinv">Đã đổi</span>
+                <span class="label red-500" ng-show="!charChoose.doinv">Chưa đổi</span><br>
+                <small>(Sau khi đổi nhân vật khác trong Game, hãy chọn lại nhân vật)</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Thoát game</label>
+            <div class="col-sm-7">
+                <label class="label green-500" ng-show="charChoose.online">Đã thoát</label>
+                <label class="label red-500" ng-show="!charChoose.online">Chưa thoát</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Điểm có thể cộng</label>
+            <div class="col-sm-7">
+                <label class="label green-500" ng-show="(charChoose.LevelUpPoint - strength - dexterity - vitality - energy) >= 0">{{charChoose.LevelUpPoint - strength - dexterity - vitality - energy | number}}</label>
+                <label class="label red-500" ng-show="(charChoose.LevelUpPoint - strength - dexterity - vitality - energy) < 0">{{charChoose.LevelUpPoint - strength - dexterity - vitality - energy | number}}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Sức mạnh: ({{charChoose.Strength}})</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="strength" value=""
+                       placeholder="+0" maxlength="6">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Nhanh nhẹn: ({{charChoose.Dexterity}})</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="dexterity" value=""
+                       placeholder="+0" maxlength="6">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Sức khỏe: ({{charChoose.Vitality}})</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="vitality" value=""
+                       placeholder="+0" maxlength="6">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Năng lượng: ({{charChoose.Energy}})</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="energy" value=""
+                       placeholder="+0" maxlength="6">
+            </div>
+        </div>
+        <div class="form-group row" ng-show="charChoose.Class == 64 || charChoose.Class == 65 || charChoose.Class == 66">
+            <label class="col-sm-3 control-label text-right">Mệnh lệnh: ({{charChoose.Leadership}})</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="leadership" value=""
+                       placeholder="+0" maxlength="6">
+            </div>
+        </div>
+
+    </div>
+    <div class="dker p-a text-right">
+        <button type="submit" class="btn btn-info" ng-click="submit()">Submit</button>
+    </div>
+</div>

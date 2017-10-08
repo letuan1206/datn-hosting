@@ -1,0 +1,43 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Chuyển khoản</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+    <div class="alert alert-info m-3">
+        <b>1.</b> Bạn sử dụng trang này để đổi Cash sang Bạc. <b>Tỉ giá 1 Cash / 1 Bạc</b><br>
+        <b>2.</b> Bạc dùng để mua item Bạc giao dịch trong game và sử dụng ngoài web.<br>
+    </div>
+    <div class="box-body">
+        <div class="form-group row">
+            <label class="col-sm-3 control-label" id="label-quality">Số lượng</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" currency-input="" ng-model="quality" id="quality" value=""
+                       placeholder="Số lượng">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">Loại tài sản</label>
+            <div class="col-sm-7">
+                <select class="form-control" ng-model="typez">
+                    <option value="" selected="">--Lựa chọn</option>
+                    <option value="bac2cash">Bạc ---> CashShop (WCoin)</option>
+                    <option value="cash2bac">CashShop (WCoin) ---> Bạc</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label" id="label-purpose">Mật khẩu cấp 2</label>
+            <div class="col-sm-7">
+                <input type="password" class="form-control" ng-model="pass2" id="pass2" value=""
+                       placeholder="********">
+            </div>
+        </div>
+
+    </div>
+    <div class="dker p-a text-right">
+        <button type="submit" class="btn btn-info" ng-click="submit()">Submit</button>
+    </div>
+</div>

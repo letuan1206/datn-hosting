@@ -1,0 +1,123 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Quản lý nhân vật</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+
+    <div class="box-body">
+        <div class="content-list content-blog-small">
+            <ul class="list-wrapper" ng-repeat="char in charList">
+                <li style="background: #fff; border-bottom: 1px solid #EEE; list-style-type: none; margin-left: -40px" ng-if="$index == 0">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{charChoose.avatar}}" class="avatar-style">
+                            <h2 class="box-character-name">{{charChoose.Name}}</h2>
+                            <div class="box-character-birthday"><i
+                                    class="fa fa-birthday-cake"></i> {{charChoose.class_name}}
+                                : {{ charChoose.MDate}}
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+
+                            <ul class="list-info">
+                                <li class="list-col">
+                                    <div class="list-row">
+                                        <div class="label-info2">Reset / Relife</div>
+                                        <div class="text-info2"> {{charChoose.Resets}} / {{charChoose.Relifes}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Reset ngày / tháng</div>
+                                        <div class="text-info2"> 0 / 0</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Level</div>
+                                        <div class="text-info2"> {{charChoose.cLevel}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Zen</div>
+                                        <div class="text-info2"> {{charChoose.Money | number}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Master : LV / P</div>
+                                        <div class="text-info2"> {{charChoose.SCFMasterLevel}} /
+                                            {{charChoose.SCFMasterPoints}}
+                                        </div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Point dư / Point dự trữ</div>
+                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}} /</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">PP / PP+</div>
+                                        <div class="text-info2">
+                                            /
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-col">
+                                    <div class="list-row">
+                                        <div class="label-info2">PK</div>
+                                        <div class="text-info2"> {{charChoose.PkCount}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Ủy thác (Điểm)</div>
+                                        <div class="text-info2"> {{charChoose.PointUyThac | number}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Bùa Exp</div>
+                                        <div class="text-info2"> {{charChoose.SealItem}}</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2"></div>
+                                        <div class="text-info2"> {{charChoose.SCFSealTime | date: 'dd/MM/yyyy - hh:mm'}}
+                                        </div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2">Bùa Thuộc Tính</div>
+                                        <div class="text-info2">None</div>
+                                    </div>
+                                    <div class="list-row">
+                                        <div class="label-info2"></div>
+                                        <div class="text-info2">-</div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                            <div class="m-b btn-groups">
+
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs"
+                                        ui-sref="char.deleteInventory({name: charChoose.Name})">Xóa
+                                    đồ nhân vật</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.add-point">Cộng
+                                    điểm</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetPoint({name: charChoose.Name})">Tẩy
+                                    điểm</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetMaster({name: charChoose.Name})">Reset
+                                    Skill Master</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.lockItem({name: charChoose.Name})">Khóa
+                                    đồ</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.moveLorencia({name: charChoose.Name})">Chuyển
+                                    về làng</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.clearPK({name: charChoose.Name})">Rửa
+                                    tội</a>
+                                <a
+                                        class="btn btn-outline b-info text-info btn-xs">Dồn Reset</a>
+                            </div>
+                            <!--<p>Thuộc chủng tộc Thương Thủ...</p>-->
+                            <a class="btn vd_btn vd_bg-green btn-sm" ui-sref="char.reset({name: charChoose.Name})">Reset</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
