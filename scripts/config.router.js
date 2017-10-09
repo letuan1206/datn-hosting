@@ -175,6 +175,20 @@
                 controller: "AddPointCtrl",
                 resolve: load('apps/character/add_point/add_point.js')
             })
+            .state('app.character.delete-inventory', {
+                url: '/delete-inventory',
+                templateUrl: 'apps/character/delete_inventory/delete_inventory.html',
+                data: { title: 'Delete Inventory' },
+                controller: "DeleteInventoryCtrl",
+                resolve: load('apps/character/delete_inventory/delete_inventory.js')
+            })
+            .state('app.character.reset-point', {
+                url: '/reset-point',
+                templateUrl: 'apps/character/reset_point/reset_point.html',
+                data: { title: 'Reset Point' },
+                controller: "ResetPointCtrl",
+                resolve: load('apps/character/reset_point/reset_point.js')
+            })
             // bank router
             .state('app.event', {
                 url: '/event',

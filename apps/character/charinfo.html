@@ -12,9 +12,7 @@
                         <div class="col-md-3">
                             <img src="{{charChoose.avatar}}" class="avatar-style">
                             <h2 class="box-character-name">{{charChoose.Name}}</h2>
-                            <div class="box-character-birthday"><i
-                                    class="fa fa-birthday-cake"></i> {{charChoose.class_name}}
-                                : {{ charChoose.MDate}}
+                            <div class="box-character-birthday"><i class="fa fa-birthday-cake"></i> {{charChoose.class_name}} : {{ charChoose.MDate}}
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -39,8 +37,7 @@
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Master : LV / P</div>
-                                        <div class="text-info2"> {{charChoose.SCFMasterLevel}} /
-                                            {{charChoose.SCFMasterPoints}}
+                                        <div class="text-info2"> {{charChoose.SCFMasterLevel}} / {{charChoose.SCFMasterPoints}}
                                         </div>
                                     </div>
                                     <div class="list-row">
@@ -83,33 +80,23 @@
                                 </li>
                             </ul>
 
-
                             <div class="m-b btn-groups">
 
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs"
-                                        ui-sref="char.deleteInventory({name: charChoose.Name})">Xóa
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.delete-inventory">Xóa
                                     đồ nhân vật</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.add-point">Cộng
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.add-point">Cộng
                                     điểm</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetPoint({name: charChoose.Name})">Tẩy
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetPoint({name: charChoose.Name})">Tẩy
                                     điểm</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetMaster({name: charChoose.Name})">Reset
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="char.resetMaster({name: charChoose.Name})">Reset
                                     Skill Master</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.lockItem({name: charChoose.Name})">Khóa
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="char.lockItem({name: charChoose.Name})">Khóa
                                     đồ</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.moveLorencia({name: charChoose.Name})">Chuyển
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="char.moveLorencia({name: charChoose.Name})">Chuyển
                                     về làng</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs" ui-sref="char.clearPK({name: charChoose.Name})">Rửa
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="char.clearPK({name: charChoose.Name})">Rửa
                                     tội</a>
-                                <a
-                                        class="btn btn-outline b-info text-info btn-xs">Dồn Reset</a>
+                                <a class="btn btn-outline b-info text-info btn-xs">Dồn Reset</a>
                             </div>
                             <!--<p>Thuộc chủng tộc Thương Thủ...</p>-->
                             <a class="btn vd_btn vd_bg-green btn-sm" ui-sref="char.reset({name: charChoose.Name})">Reset</a>
