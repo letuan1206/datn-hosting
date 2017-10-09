@@ -8,7 +8,7 @@
         .controller('MoveLorenciaCtrl', MoveLorenciaCtrl);
 
     function MoveLorenciaCtrl($scope, $rootScope, $http, $window) {
-        $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
+        $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
         console.log($rootScope.charChoose)
     }
 })();

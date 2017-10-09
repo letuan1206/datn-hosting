@@ -4,7 +4,7 @@
        .controller('DeleteInventoryCtrl', DeleteInventoryCtrl);
 
    function DeleteInventoryCtrl($scope, $rootScope, $http, $window, toastr) {
-       $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
+       $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
 
        $scope.submit = function () {
            var account = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;

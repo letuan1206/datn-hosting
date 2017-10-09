@@ -4,10 +4,10 @@
         <select ng-model="$root.charChoose"
                 class="select-char"
                 ng-options="char.Name for char in listChar"
-                ng-change="updateChar()">
+                ng-change="updateChar(charChoose)">
         </select>
         <div class="content-character" tooltip-placement="bottom"
-             uib-tooltip="Click để cập nhật thông tin!" ng-click="updateChar()">
+             uib-tooltip="Click để cập nhật thông tin!" ng-click="updateChar(charChoose)">
             <a herf="" class="list-left"><img
                     src="{{charChoose.avatar}}" class="box-avatar-char-choise"> <i
                     class="on b-white bottom"></i>

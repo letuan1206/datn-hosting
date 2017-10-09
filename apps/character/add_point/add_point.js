@@ -4,7 +4,7 @@
         .controller('AddPointCtrl', AddPointCtrl);
 
     function AddPointCtrl($scope, $rootScope, $http, $window, toastr) {
-        $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
+        $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
         $scope.strength = '';
         $scope.dexterity = '';
         $scope.vitality = '';

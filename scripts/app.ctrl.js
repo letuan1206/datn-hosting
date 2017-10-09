@@ -138,23 +138,24 @@
                 $state.go('app.login');
             }
 
-            $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
-
+            $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
+            
             if ($rootScope.isLogin && $rootScope.charChoose === null) {
+                console.log('vao day');
                 $rootScope.charChoose = $rootScope.listChar[0];
             }
         }
 
-        $scope.updateChar = function () {
+        $scope.updateChar = function (char) {
             // cfpLoadingBar.start();
-            if ($rootScope.isLogin && $rootScope.charChoose === null) {
-                $rootScope.charChoose = $rootScope.listChar[0];
-            }
+            // if ($rootScope.isLogin && $rootScope.charChoose === null) {
+            //     $rootScope.charChoose = $rootScope.listChar[0];
+            // }
 
-            sessionStorage.setItem('charChoose', JSON.stringify($rootScope.charChoose));
-            $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
+            $rootScope.charChoose = char;
+            // sessionStorage.setItem(LOCALSTORAGE_CHARCHOOSE, JSON.stringify($rootScope.charChoose));
             // cfpLoadingBar.complete();
-            $state.go('app.character.info', {}, {reload: true});
+            $state.go('app.character.info', {data: 'update-char'}, {reload: true});
         };
 
         $scope.logout = function () {

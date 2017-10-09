@@ -6,8 +6,8 @@
 
     <div class="box-body">
         <div class="content-list content-blog-small">
-            <ul class="list-wrapper" ng-repeat="char in charList">
-                <li style="background: #fff; border-bottom: 1px solid #EEE; list-style-type: none; margin-left: -40px" ng-if="$index == 0">
+            <ul class="list-wrapper">
+                <li style="background: #fff; border-bottom: 1px solid #EEE; list-style-type: none; margin-left: -40px">
                     <div class="row">
                         <div class="col-md-3">
                             <img src="{{charChoose.avatar}}" class="avatar-style">
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Point dư / Point dự trữ</div>
-                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}} /</div>
+                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}} / {{charChoose.Point_Reserve | number}}</div>
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">PP / PP+</div>

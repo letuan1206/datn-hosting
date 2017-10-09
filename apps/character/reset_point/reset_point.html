@@ -6,6 +6,11 @@
         <h2>Reset lại point cho nhân vật {{charChoose.Name}}</h2>
     </div>
     <div class="box-divider m-a-0"></div>
+    <div class="alert alert-info m-3">
+        1. Nếu tổng số point của bạn > 65.000 Point thì bạn hãy vào phần 
+        <a class="nav-link label accent" href="http://themeforest.net/user/flatfull/portfolio?ref=flatfull">Rút Point</a>
+         để rút phần point còn lại.<br> 
+    </div>
     <div class="box-body">
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Đổi nhân vật</label>
@@ -26,13 +31,12 @@
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Mật khẩu cấp 2</label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" ng-model="pass2" value=""
+                <input type="password" class="form-control" ng-model="pass2" value=""
                        placeholder="*********" maxlength="6">
             </div>
         </div>
-
     </div>
-    <div class="dker p-a text-right">
+    <div class="dker p-a text-center">
         <button type="submit" class="btn btn-info" ng-click="submit()">Submit</button>
     </div>
 </div>

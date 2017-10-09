@@ -21,7 +21,6 @@
                 $http.post(url, data, {
                     withCredentials: true
                 }).then(function (response) {
-                    console.log(response);
                     if (response.data.status == RESPONSE_STATUS_SUCCESS) {
 
                         $window.sessionStorage.setItem(LOCALSTORAGE_USER, JSON.stringify(response.data.data));
@@ -31,37 +30,37 @@
                         var memb___id = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;
                         var login_token = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).login_token;
 
-                        var url = SERVER_API + "getInfoCharacter";
-                        var data = {
-                            memb___id: memb___id,
-                            login_token: login_token
-                        };
+                        // var url = SERVER_API + "getInfoCharacter";
+                        // var data = {
+                        //     memb___id: memb___id,
+                        //     login_token: login_token
+                        // };
 
-                        $http.post(url, data, {
-                            withCredentials: true
-                        }).then(function (response) {
-                            if (response.data.status == RESPONSE_STATUS_SUCCESS) {
-                                $scope.charList = (response.data.data);
-                                angular.forEach($scope.charList, function (value, key) {
-                                    value['avatar'] = get_link_avatar_character(value.Class);
-                                    value['class_name'] = get_class_name(value.Class);
-                                    value['MDate'] = moment(value.MDate).format('DD/MM/YYYY');
-                                    value['SealItem'] = get_seal_item(value.SCFSealItem);
-                                });
+                        // $http.post(url, data, {
+                        //     withCredentials: true
+                        // }).then(function (response) {
+                        //     if (response.data.status == RESPONSE_STATUS_SUCCESS) {
+                        //         $scope.charList = (response.data.data);
+                        //         angular.forEach($scope.charList, function (value, key) {
+                        //             value['avatar'] = get_link_avatar_character(value.Class);
+                        //             value['class_name'] = get_class_name(value.Class);
+                        //             value['MDate'] = moment(value.MDate).format('DD/MM/YYYY');
+                        //             value['SealItem'] = get_seal_item(value.SCFSealItem);
+                        //         });
 
-                                $window.sessionStorage.setItem(LOCALSTORAGE_CHARLIST, JSON.stringify($scope.charList));
-                                $rootScope.listChar = get_list_char();
-                                $rootScope.charChoose = $scope.listChar[0];
+                        //         $window.sessionStorage.setItem(LOCALSTORAGE_CHARLIST, JSON.stringify($scope.charList));
+                        //         $rootScope.listChar = get_list_char();
+                        //         $rootScope.charChoose = $scope.listChar[0];
 
-                                sessionStorage.setItem('charChoose', JSON.stringify($rootScope.charChoose));
+                        //         sessionStorage.setItem(LOCALSTORAGE_CHARCHOOSE, JSON.stringify($rootScope.charChoose));
 
-                                $state.go('app.character.info', {}, {reload: true});
-                            } else if (response.data.status == RESPONSE_STATUS_ERROR) {
-                                $scope.message = response.data.message;
-                            }
-                        }, function (err) {
-                            $scope.isServerError = false;
-                        });
+                                $state.go('app.character.info', {data: 'login-redirect'}, {reload: true});
+                        //     } else if (response.data.status == RESPONSE_STATUS_ERROR) {
+                        //         $scope.message = response.data.message;
+                        //     }
+                        // }, function (err) {
+                        //     $scope.isServerError = false;
+                        // });
 
                     } else if (response.data.status == RESPONSE_STATUS_ERROR) {
                         $scope.message = response.data.message;

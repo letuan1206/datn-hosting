@@ -177,6 +177,9 @@
                 templateUrl: 'apps/character/charinfo.html',
                 data : { title: 'Char Info' },
                 controller: "CharInfoCtrl",
+                params: {
+                    'data': null,
+                },
                 resolve: load('apps/character/charinfo.js')
             })
             .state('app.character.add-point', {
