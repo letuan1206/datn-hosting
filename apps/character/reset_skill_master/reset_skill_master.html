@@ -3,16 +3,26 @@
 
 <div class="box">
     <div class="box-header">
-        <h2>Xóa đồ cho nhân vậ    t {{charChoose.Name}}</h2>
+        <h2>Reset skill master cho nhân vật {{charChoose.Name}}</h2>
     </div>
     <div class="box-divider m-a-0"></div>
     <div class="alert alert-info m-3">
-        1. Bạn nên bỏ toàn bộ đồ có giá trị trên người nhân vật vào hòm đồ chung rồi mới thực hiện chức năng
-        này.<br>
-        2. Nhân vật Xóa đồ không được đang trong Game<br>
-        3.<b> <i>Nếu xóa nhầm thì sẽ không khôi phục được đồ.</i></b>
+        1. Reset lại điểm master cho nhân vật<br>
+        2. Sau khi reset toàn bộ skill sẽ bị mất. Cần phải vào game học lại<br>
+        3. Được sử dụng Bạc + Bạc khoá. <br>
+        4. ZEN phải được gửi trong ngân hàng.
     </div>
     <div class="box-body">
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Bạc cần</label>
+            <div class="col-sm-7">
+                <label>
+                    <span class="label light-blue-500">500</span>
+                    <span class="label green-500" ng-show="charChoose.doinv">Đã đổi</span>
+                    <span class="label red-500" ng-show="!charChoose.doinv">Chưa đổi</span><br>
+                </label>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Đổi nhân vật</label>
             <div class="col-sm-7">

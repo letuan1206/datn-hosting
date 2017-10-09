@@ -189,6 +189,13 @@
                 controller: "ResetPointCtrl",
                 resolve: load('apps/character/reset_point/reset_point.js')
             })
+            .state('app.character.reset-skill-master', {
+                url: '/reset-skill-master',
+                templateUrl: 'apps/character/reset_skill_master/reset_skill_master.html',
+                data: { title: 'Reset Skill Master' },
+                controller: "ResetSkillMasterCtrl",
+                resolve: load('apps/character/reset_skill_master/reset_skill_master.js')
+            })
             // bank router
             .state('app.event', {
                 url: '/event',
