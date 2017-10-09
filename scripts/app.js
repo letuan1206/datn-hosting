@@ -22,6 +22,7 @@
         'ui.load',
         // 'ui.jp',
         'oc.lazyLoad',
-        'cfp.loadingBar'
+        'cfp.loadingBar',
+        'toastr'
       ]);
 })();

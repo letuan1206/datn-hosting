@@ -77,7 +77,7 @@
                     $window.location.href = theme.url;
                 }, 100, false);
             }
-        };
+        }
 
         function setColor() {
             vm.app.setting.color = {
@@ -85,11 +85,11 @@
                 accent: getColor(vm.app.setting.theme.accent),
                 warn: getColor(vm.app.setting.theme.warn)
             };
-        };
+        }
 
         function getColor(name) {
             return vm.app.color[name] ? vm.app.color[name] : palette.find(name);
-        };
+        }
 
         $rootScope.$on('$stateChangeSuccess', openPage);
 
@@ -102,7 +102,7 @@
             $('#aside').modal('hide');
             $('body').removeClass('modal-open').find('.modal-backdrop').remove();
             $('.navbar-toggleable-sm').collapse('hide');
-        };
+        }
 
         vm.goBack = function () {
             $window.history.back();
@@ -140,14 +140,14 @@
 
             $rootScope.charChoose = JSON.parse(sessionStorage.getItem('charChoose'));
 
-            if ($rootScope.isLogin && $scope.charChoose == null) {
+            if ($rootScope.isLogin && $rootScope.charChoose === null) {
                 $rootScope.charChoose = $rootScope.listChar[0];
             }
         }
 
         $scope.updateChar = function () {
             // cfpLoadingBar.start();
-            if ($rootScope.isLogin && $rootScope.charChoose == null) {
+            if ($rootScope.isLogin && $rootScope.charChoose === null) {
                 $rootScope.charChoose = $rootScope.listChar[0];
             }
 

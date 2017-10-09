@@ -54,8 +54,8 @@ function color(mark) {
     return color;
 }
 
-function get_class_name(char) {
-    var char = parseInt(char);
+function get_class_name(character) {
+    var char = parseInt(character);
     switch (char) {
         case 0:
         case 1:
@@ -311,10 +311,10 @@ function get_map_name(MapNumber) {
     return MapNumber;
 }
 
-function get_link_avatar_character(char) {
+function get_link_avatar_character(character) {
     var path = 'assets/images/characters/';
     var link = '';
-    var char = parseInt(char);
+    var char = parseInt(character);
     switch (char) {
         case 0:
         case 1:
@@ -377,15 +377,14 @@ function get_char(name) {
     return obj;
 }
 
-function set_char(name, char) {
+function update_character(name, char) {
     var charList = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARLIST));
     for (var i = 0; i < charList.length; i++) {
         if (charList[i].Name === name) {
             charList[i] = char;
-            console.log(charList[i]);
+            // console.log('char list', charList[i]);
         }
     }
-
     sessionStorage.setItem(LOCALSTORAGE_CHARLIST, JSON.stringify(charList));
 }
 

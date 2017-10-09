@@ -20,8 +20,19 @@
           // console.log($state);
       }
 
-      config.$inject =  ['$stateProvider', '$urlRouterProvider', 'MODULE_CONFIG', '$locationProvider'];
-      function config( $stateProvider,   $urlRouterProvider,   MODULE_CONFIG , $locationProvider) {
+      config.$inject =  ['$stateProvider', '$urlRouterProvider', 'MODULE_CONFIG', '$locationProvider', 'toastrConfig'];
+      function config( $stateProvider,   $urlRouterProvider,   MODULE_CONFIG , $locationProvider, toastrConfig) {
+
+        angular.extend(toastrConfig, {
+          autoDismiss: false,
+          containerId: 'toast-container',
+          maxOpened: 0,
+          newestOnTop: true,
+          positionClass: 'toast-bottom-right',
+          preventDuplicates: false,
+          preventOpenDuplicates: false,
+          target: 'body'
+        });
 
         var p = getParams('layout'),
             l = p ? p + '.' : '',
