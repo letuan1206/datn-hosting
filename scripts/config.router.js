@@ -25,8 +25,8 @@
 
         var p = getParams('layout'),
             l = p ? p + '.' : '',
-            layout = 'views/layout/layout.'+l+'html',
-            dashboard = 'views/dashboard/dashboard.'+l+'html';
+            layout = 'views/layout/layout.'+l+'html';
+            // dashboard = 'views/dashboard/dashboard.'+l+'html';
 
         // $locationProvider.html5Mode(true);
         $urlRouterProvider
@@ -195,6 +195,27 @@
                 data: { title: 'Reset Skill Master' },
                 controller: "ResetSkillMasterCtrl",
                 resolve: load('apps/character/reset_skill_master/reset_skill_master.js')
+            })
+            .state('app.character.lock-item', {
+                url: '/lock-item',
+                templateUrl: 'apps/character/lock_item/lock_item.html',
+                data: { title: 'Lock Item' },
+                controller: "LockItemCtrl",
+                resolve: load('apps/character/lock_item/lock_item.js')
+            })
+            .state('app.character.move-lorencia', {
+                url: '/move-lorencia',
+                templateUrl: 'apps/character/move_lorencia/move_lorencia.html',
+                data: { title: 'Move Lorencia' },
+                controller: "MoveLorenciaCtrl",
+                resolve: load('apps/character/move_lorencia/move_lorencia.js')
+            })
+            .state('app.character.clear-pk', {
+                url: '/clear-pk',
+                templateUrl: 'apps/character/clear_pk/clear_pk.html',
+                data: { title: 'Clear PK' },
+                controller: "ClearPKCtrl",
+                resolve: load('apps/character/clear_pk/clear_pk.js')
             })
             // bank router
             .state('app.event', {

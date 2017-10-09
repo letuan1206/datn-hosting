@@ -1,5 +1,5 @@
   <div class="navbar navbar-toggleable-sm flex-row align-items-center">
-        <a data-toggle="collapse" data-target="#navbar-4" class="navbar-item hidden-md-up mr-3">
+        <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
           <i class="material-icons">&#xe5d2;</i>
         </a>
         <div ui-include="'views/blocks/navbar.box.logo.html'"></div>
@@ -7,16 +7,26 @@
         <!-- navbar collapse -->
         <div class="collapse navbar-collapse" id="navbar-4">
           <!-- link and dropdown -->
-          <ul class="nav navbar-nav m-r">
-            <li class="nav-item dropdown dropdown-submenu pos-stc">
-              <a href class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <span>Mega</span>
+          <ul class="nav navbar-nav m-r text-primary-hover">
+            <li class="nav-item pos-stc">
+              <a ui-sref="app.account.info" class="nav-link">
+                <span>Tài khoản</span>
               </a>
-              <div ui-include="'views/blocks/dropdown.mega.html'"></div>
+            </li>
+            <li class="nav-item">
+              <a ui-sref="app.character.info" class="nav-link">
+                <span>Nhân vật</span>
+              </a>
             </li>
             <li class="nav-item dropdown dropdown-submenu">
               <a class="nav-link dropdown-toggle" href data-toggle="dropdown">
-                <span>Submenu</span>
+                <span>Ngân hàng</span>
+              </a>
+              <div ui-include="'views/blocks/dropdown.sub.html'"></div>
+            </li>
+            <li class="nav-item dropdown dropdown-submenu">
+              <a class="nav-link dropdown-toggle" href data-toggle="dropdown">
+                <span>Events</span>
               </a>
               <div ui-include="'views/blocks/dropdown.sub.html'"></div>
             </li>
