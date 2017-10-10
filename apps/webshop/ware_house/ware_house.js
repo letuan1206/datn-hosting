@@ -108,7 +108,7 @@
                 return;
             }
 
-            var url = SERVER_API + "custom/addItemToSuperMarket";
+            var url = SERVER_API + "webshop/addItemToSuperMarket";
             var list_item = [];
             angular.forEach($scope.listItemChoose, function (value, key) {
                 var tmp = {
@@ -128,22 +128,25 @@
             });
 
             var data = {
-                memb___id: memb___id,
-                login_token: login_token,
-                name: JSON.parse(sessionStorage.getItem('charChoose')).Name,
+                account: JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id,
+                name: $rootScope.charChoose.Name,
                 list_item: list_item
             };
 
             console.log(data);
-            $http.post(url, data, {
+            $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
                 if (response.data.status == RESPONSE_STATUS_SUCCESS) {
-                    // $scope.message = "<font color=\"green\">" + response.data.message + "</font>";
-                    $scope.submit();
+                    $scope.getItemWareHouseList();
                     $('#sellItemToMarket').modal('hide');
+                    toastr.success(response.data.message, {
+                        closeButton: true
+                    });
                 } else if (response.data.status == RESPONSE_STATUS_ERROR) {
-                    $scope.message = "<font color=\"red\">" + response.data.message + "</font>";
+                    toastr.error('Bỏ chọn ' + $scope.listItem[index].name, {
+                        closeButton: true
+                    });
                 }
             }, function (err) {
                 $scope.isServerError = false;
