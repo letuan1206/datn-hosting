@@ -133,6 +133,7 @@
 
             if ($rootScope.isLogin) {
                 $rootScope.user = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_USER));
+                $rootScope.bankInfo = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_BANKINFO));
                 $rootScope.listChar = get_list_char();
             } else {
                 $state.go('app.login');
@@ -147,14 +148,7 @@
         }
 
         $scope.updateChar = function (char) {
-            // cfpLoadingBar.start();
-            // if ($rootScope.isLogin && $rootScope.charChoose === null) {
-            //     $rootScope.charChoose = $rootScope.listChar[0];
-            // }
-
             $rootScope.charChoose = char;
-            // sessionStorage.setItem(LOCALSTORAGE_CHARCHOOSE, JSON.stringify($rootScope.charChoose));
-            // cfpLoadingBar.complete();
             $state.go('app.character.info', {data: 'update-char'}, {reload: true});
         };
 

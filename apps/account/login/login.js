@@ -21,14 +21,28 @@
                 $http.post(url, data, {
                     withCredentials: true
                 }).then(function (response) {
-                    if (response.data.status == RESPONSE_STATUS_SUCCESS) {
+                    if (response.data.status === RESPONSE_STATUS_SUCCESS) {
 
                         $window.sessionStorage.setItem(LOCALSTORAGE_USER, JSON.stringify(response.data.data));
                         $rootScope.user = JSON.parse(JSON.stringify(response.data.data));
                         $rootScope.isLogin = true;
 
-                        var memb___id = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;
-                        var login_token = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).login_token;
+                        var account = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;
+
+                        var url = SERVER_API + 'bank/getBankInfo?account=' + account;
+
+                        $http.get(url, set_header(), {
+                            withCredentials: true
+                        }).then(function (res) {
+                            $rootScope.bankInfo = res.data.data;
+                            console.log($rootScope.bankInfo);
+                            $window.sessionStorage.setItem(LOCALSTORAGE_BANKINFO, JSON.stringify(res.data.data));
+                        }, function (err) {
+                            $scope.isServerError = false;
+                        });
+
+                        // var memb___id = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;
+                        // var login_token = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).login_token;
 
                         // var url = SERVER_API + "getInfoCharacter";
                         // var data = {
@@ -54,7 +68,7 @@
 
                         //         sessionStorage.setItem(LOCALSTORAGE_CHARCHOOSE, JSON.stringify($rootScope.charChoose));
 
-                                $state.go('app.character.info', {data: 'login-redirect'}, {reload: true});
+                        $state.go('app.character.info', {data: 'login-redirect'}, {reload: true});
                         //     } else if (response.data.status == RESPONSE_STATUS_ERROR) {
                         //         $scope.message = response.data.message;
                         //     }
@@ -62,7 +76,7 @@
                         //     $scope.isServerError = false;
                         // });
 
-                    } else if (response.data.status == RESPONSE_STATUS_ERROR) {
+                    } else if (response.data.status === RESPONSE_STATUS_ERROR) {
                         $scope.message = response.data.message;
                     }
                 }, function (err) {

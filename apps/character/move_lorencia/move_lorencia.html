@@ -19,8 +19,8 @@
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Thoát game</label>
             <div class="col-sm-7">
-                <label class="label green-500" ng-show="charChoose.online">Đã thoát</label>
-                <label class="label red-500" ng-show="!charChoose.online">Chưa thoát</label>
+                <label class="label green-500" ng-show="charChoose.online == 0">Đã thoát</label>
+                <label class="label red-500" ng-show="charChoose.online == 1">Chưa thoát</label>
             </div>
         </div>
     </div>

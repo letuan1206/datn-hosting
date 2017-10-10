@@ -8,30 +8,53 @@
     <div class="box-divider m-a-0"></div>
     <div class="alert alert-info m-3">
         1. Zen rửa tội phải để ở trong nhân vật<br>
-        2. Có thể rửa tội trong game bằng lệnh <b>/clearpk</b>
+        2. Có thể rửa tội trong game bằng lệnh <b>/clearpk</b><br>
+        3. PK < 100 chi phí (10.000.000 ZEN / 1 PK)<br>
+        4. PK >= 100 chi phí (500 Bạc / 1 PK)
     </div>
 
     <div class="box-body">
-        <table class="table table-striped table-bordered table-hover table-heading no-border-bottom">
-            <thead class="vd_bg-blue vd_white" align="center">
-            <tr>
-                <th>PK</th>
-                <th>Phí</th>
-            </tr>
-            </thead>
-            <tbody>
+        <!--<table class="table table-striped table-bordered table-hover table-heading no-border-bottom">-->
+            <!--<thead class="vd_bg-blue vd_white" align="center">-->
+            <!--<tr>-->
+                <!--<th>PK</th>-->
+                <!--<th>Phí</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
 
-            <tr align="center">
-                <td align="center">PK <= 99</td>
-                <td align="center">10.000.000 ZEN</td>
-            </tr>
-            <tr align="center">
-                <td align="center">PK > 99</td>
-                <td align="center">500 Bạc</td>
-            </tr>
-            </tbody>
-        </table>
-
+            <!--<tr align="center">-->
+                <!--<td align="center">PK <= 99</td>-->
+                <!--<td align="center">10.000.000 ZEN</td>-->
+            <!--</tr>-->
+            <!--<tr align="center">-->
+                <!--<td align="center">PK > 99</td>-->
+                <!--<td align="center">500 Bạc</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Bạc cần</label>
+            <div class="col-sm-7">
+                <label>
+                    <span class="label light-blue-500">{{sliverNeed | number}}</span>
+                    <span class="text-danger" ng-if="bankInfo.bank_sliver + bankInfo.bank_sliver_lock - sliverNeed < 0">
+                        (Thiếu {{sliverNeed - bankInfo.bank_sliver - bankInfo.bank_sliver_lock | number}} bạc)
+                    </span><br>
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Zen cần</label>
+            <div class="col-sm-7">
+                <label>
+                    <span class="label light-blue-500">{{zenNeed | number}}</span>
+                    <span class="text-danger" ng-if="charChoose.Money - zenNeed < 0">
+                        (Thiếu {{zenNeed - charChoose.Money | number}} Zen)
+                    </span><br>
+                </label>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Đổi nhân vật</label>
             <div class="col-sm-7">

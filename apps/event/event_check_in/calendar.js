@@ -4,7 +4,7 @@
         .module('app')
         .controller('FullcalendarCtrl', FullcalendarCtrl);
 
-        function FullcalendarCtrl($scope, $window, $http) {
+        function FullcalendarCtrl($scope, $window, $http, toastr) {
           var vm = $scope;
           var date = new Date();
           var d = date.getDate();
@@ -31,32 +31,32 @@
               if (response.data.status === RESPONSE_STATUS_SUCCESS) {
                 $scope.eventCount = response.data.data.length;
                 $scope.stillEvent = response.data.data[$scope.eventCount - 1].day_check;
-                response.data.data.map(result => {
-                  var color_event = 'lime-500';
+                var colorEvent = 'lime-500';
+                response.data.data.map(function(result) {
                   if(result.day_check > 7 && result.day_check <=14) {
-                    color_event = 'light-green-500';
+                    colorEvent = 'light-green-500';
                   } else if (result.day_check > 14 && result.day_check <= 21) {
-                    color_event = 'green-500';
+                    colorEvent = 'green-500';
                   } else if (result.day_check > 21 && result.day_check <= 28) {
-                    color_event = 'teal-500';
+                    colorEvent = 'teal-500';
                   } else if (result.day_check > 28) {
-                    color_event = 'blue-500';
+                    colorEvent = 'blue-500';
                   }
 
                   var events = {
                     title: 'Checked',
                     start: new Date(result.time),
-                    className: [color_event],
+                    className: [colorEvent],
                     location: result.location,
                     info: result.description
-                  }
+                  };
                   vm.events.push(events);
                 });
               }
             }, function (err) {
               $scope.isServerError = false;
             });
-          }
+          };
 
           vm.submit = function () {
             $.getJSON('//freegeoip.net/json/?callback=?', function (result) {
@@ -73,27 +73,34 @@
               }).then(function (response) {
                 vm.res = response.data;
 
-                if (response.data.status == RESPONSE_STATUS_SUCCESS) {
-                  var color_event = 'lime-500';
+                if (response.data.status === RESPONSE_STATUS_SUCCESS) {
+                  var colorEvent = 'lime-500';
                   if (response.data.data.day_check > 7 && response.data.data.day_check <= 14) {
-                    color_event = 'light-green-500';
+                    colorEvent = 'light-green-500';
                   } else if (response.data.data.day_check > 14 && response.data.data.day_check <= 21) {
-                    color_event = 'green-500';
+                    colorEvent = 'green-500';
                   } else if (response.data.data.day_check > 21 && response.data.data.day_check <= 28) {
-                    color_event = 'teal-500';
+                    colorEvent = 'teal-500';
                   } else if (response.data.data.day_check > 28) {
-                    color_event = 'blue-500';
+                    colorEvent = 'blue-500';
                   }
 
                   vm.events.push({
                     title: 'Checked',
                     start: new Date(response.data.data.time),
-                    className: [color_event],
+                    className: [colorEvent],
                     location: response.data.data.location,
                     info: response.data.data.description
                   });
-                }
 
+                  toastr.success(response.data.message, {
+                    closeButton: true
+                  });
+                } else {
+                  toastr.error(response.data.message, {
+                      closeButton: true
+                  });
+                }
               }, function (err) {
                 $scope.isServerError = false;
               });

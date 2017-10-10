@@ -17,9 +17,21 @@
             <label class="col-sm-3 control-label text-right">Bạc cần</label>
             <div class="col-sm-7">
                 <label>
-                    <span class="label light-blue-500">500</span>
-                    <span class="label green-500" ng-show="charChoose.doinv">Đã đổi</span>
-                    <span class="label red-500" ng-show="!charChoose.doinv">Chưa đổi</span><br>
+                    <span class="label light-blue-500">{{sliverNeed | number}}</span>
+                    <span class="text-danger" ng-if="bankInfo.bank_sliver + bankInfo.bank_sliver_lock - sliverNeed < 0">
+                        (Thiếu {{sliverNeed - bankInfo.bank_sliver - bankInfo.bank_sliver_lock | number}} bạc)
+                    </span><br>
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label text-right">Zen cần</label>
+            <div class="col-sm-7">
+                <label>
+                    <span class="label light-blue-500">{{zenNeed*1000000 | number}}</span>
+                    <span class="text-danger" ng-if="bankInfo.bank_zen - zenNeed < 0">
+                        (Thiếu {{zenNeed - bankInfo.bank_zen | number}} Triệu Zen)
+                    </span><br>
                 </label>
             </div>
         </div>
@@ -34,16 +46,16 @@
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Thoát game</label>
             <div class="col-sm-7">
-                <label class="label green-500" ng-show="charChoose.online">Đã thoát</label>
-                <label class="label red-500" ng-show="!charChoose.online">Chưa thoát</label>
+                <label class="label green-500" ng-show="charChoose.online == 0">Đã thoát</label>
+                <label class="label red-500" ng-show="charChoose.online == 1">Chưa thoát</label>
             </div>
         </div>
         <div class="box-divider m-a-0 mb-2 col-md-7 push-md-3"></div>
         <div class="form-group row">
             <label class="col-sm-3 control-label text-right">Mật khẩu cấp 2</label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" ng-model="pass2" value=""
-                       placeholder="*********" maxlength="6">
+                <input type="password" class="form-control" ng-model="pass2" value=""
+                       placeholder="*********" maxlength="50">
             </div>
         </div>
 
