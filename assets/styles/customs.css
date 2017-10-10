@@ -26,6 +26,7 @@
 .select-char:hover {
     background-color: #F0F0F0;
 }
+
 .character-name {
     font-weight: 400;
     font-size: 16px;
@@ -40,7 +41,7 @@
     width: 90%;
 }
 
-.content-character:hover{
+.content-character:hover {
     background-color: #F0F0F0;
 }
 
@@ -55,14 +56,17 @@
     -webkit-margin-start: 0px !important;
     -webkit-margin-end: 0px !important;
 }
+
 .list-col {
     list-style-type: none;
     width: 50%;
     float: left;
 }
-.list-col:first-child .list-row{
+
+.list-col:first-child .list-row {
     border-right: none;
 }
+
 .list-row {
     border-left: 1px dashed #c2c2c2;
     border-bottom: 1px dashed #c2c2c2;
@@ -71,12 +75,15 @@
     display: table;
     line-height: 12px;
 }
+
 .list-row:first-child {
     border-top: 1px dashed #c2c2c2;
 }
+
 .list-row:hover {
     background-color: #f0f0f0;
 }
+
 .label-info2 {
     text-indent: 20px;
     text-overflow: ellipsis;
@@ -86,6 +93,7 @@
     float: left;
     padding: 8px 0;
 }
+
 .text-info2 {
     color: #e97300;
     font-weight: 300;
@@ -104,6 +112,7 @@ h2.box-character-name {
     width: 174px;
     padding-top: 15px;
 }
+
 .box-character-birthday {
     font-size: 12px;
     font-style: italic;
@@ -130,17 +139,32 @@ h2.box-character-name {
 
 .btn-default-custom {
     text-shadow: 0 1px 0 #fff;
-    background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
-    background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
+    background-image: -webkit-linear-gradient(top, #fff 0, #e0e0e0 100%);
+    background-image: -o-linear-gradient(top, #fff 0, #e0e0e0 100%);
     /* background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0)); */
     /* background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%); */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);*/
     background-repeat: repeat-x;
-    border-color: #dbdbdb;
+    /*border-color: #dbdbdb;*/
     border-color: #ccc;
 }
 
 .bank-hover:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.item-info-popover:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.modal-scroll-item {
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
