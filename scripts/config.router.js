@@ -243,6 +243,18 @@
               controller: 'FullcalendarCtrl',
               resolve: load(['moment', 'fullcalendar', 'ui.calendar','apps/event/event_check_in/calendar.js'])
             })
+            // web shop
+            .state('app.shop', {
+                url: '/shop',
+                template: '<div ui-view></div>'
+            })
+            .state('app.shop.ware-house', {
+                url: '/ware-house',
+                templateUrl: 'apps/webshop/ware_house/ware_house.html',
+                data: { title: 'Ware House' },
+                controller: "WareHouseCtrl",
+                resolve: load('apps/webshop/ware_house/ware_house.js')
+            })
           ;
 
         function load(srcs, callback) {
