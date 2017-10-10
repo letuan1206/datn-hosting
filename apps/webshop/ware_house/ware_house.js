@@ -38,7 +38,9 @@
                     });
 
                 } else if (response.data.status == RESPONSE_STATUS_ERROR) {
-                    // $scope.message = "<font color=\"red\">" + response.data.message + "</font>";
+                    toastr.error(response.data.message, {
+                        closeButton: true
+                    });
                 }
             }, function (err) {
                 $scope.isServerError = false;
@@ -144,7 +146,7 @@
                         closeButton: true
                     });
                 } else if (response.data.status == RESPONSE_STATUS_ERROR) {
-                    toastr.error('Bỏ chọn ' + $scope.listItem[index].name, {
+                    toastr.error(response.data.message, {
                         closeButton: true
                     });
                 }
