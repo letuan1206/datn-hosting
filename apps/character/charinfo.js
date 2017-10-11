@@ -6,7 +6,6 @@
 
     CharInfoCtrl.$inject = ['$scope', '$rootScope', '$http', '$window', '$stateParams'];
     function CharInfoCtrl($scope, $rootScope, $http, $window, $stateParams) {
-        console.log($stateParams);
         if ($stateParams.data === 'login-redirect') {
             var memb___id = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).memb___id;
             var login_token = JSON.parse($window.sessionStorage.getItem(LOCALSTORAGE_USER)).login_token;

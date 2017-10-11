@@ -17,7 +17,16 @@
           $rootScope.$state = $state;
           $rootScope.$stateParams = $stateParams;
 
-          // console.log($state);
+          $rootScope.$on('$stateChangeSuccess', function (evt, toState, toParams, fromState, fromParams) {
+              if (toState.name !== 'app.login' && toState.name !== 'app.register' && toState.name !== 'app.forgot-pass') {
+                  var value = [];
+                  value.isLogin = sessionStorage.getItem(LOCALSTORAGE_USER) || false;
+                  if(!value.isLogin) {
+                      setTimeout(() => { $state.go('app.login') }, 0);
+                  }
+              }
+            //   console.log("$stateChangeSuccess " + fromState.name + JSON.stringify(fromParams) + " -> " + toState.name + JSON.stringify(toParams));
+          });
       }
 
       config.$inject =  ['$stateProvider', '$urlRouterProvider', 'MODULE_CONFIG', '$locationProvider', 'toastrConfig'];

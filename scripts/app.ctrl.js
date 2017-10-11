@@ -136,7 +136,7 @@
                 $rootScope.bankInfo = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_BANKINFO));
                 $rootScope.listChar = get_list_char();
             } else {
-                $state.go('app.login');
+                setTimeout(() => { $state.go('app.login') }, 0);
             }
 
             $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
