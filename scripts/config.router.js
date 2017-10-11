@@ -255,6 +255,13 @@
                 controller: "WareHouseCtrl",
                 resolve: load('apps/webshop/ware_house/ware_house.js')
             })
+            .state('app.shop.super-market', {
+                url: '/super-market',
+                templateUrl: 'apps/webshop/super_market/super_market.html',
+                data: { title: 'Super Market' },
+                controller: "SuperMarketCtrl",
+                resolve: load('apps/webshop/super_market/super_market.js')
+            })
           ;
 
         function load(srcs, callback) {
