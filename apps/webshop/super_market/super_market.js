@@ -17,7 +17,7 @@
                 selectGroup: selectGroup,
                 searchKey: searchKey
             };
-            console.log(data);
+            //console.log(data);
             $scope.selectClass = selectClass;
             $scope.page = page;
             $scope.selectGroup = selectGroup;
@@ -64,6 +64,7 @@
                     toastr.success(response.data.message, {
                         closeButton: true
                     });
+                    $scope.submit($scope.page);
                 } else if (response.data.status === RESPONSE_STATUS_ERROR) {
                     toastr.error(response.data.message, {
                         closeButton: true

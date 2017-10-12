@@ -133,8 +133,7 @@
         <div class="item-content-list col-md-12 mt-2">
             <div class="row row-xs">
                 <div class="m-2" ng-repeat="item in listItem" style="width: 130px;">
-                    <div class="item-list-boder r-3x" data-toggle="modal"
-                    data-target="#buyItemModal" ng-click="selectItem(item)">
+                    <div class="item-list-boder r-3x">
                         <div class="text-center">
                             <div class="m-b pt-2">
                                 <button class="btn btn-xs white text-blue" tooltip-placement="top"
@@ -162,7 +161,8 @@
                                uib-tooltip="Click để tìm kiếm các món hàng của {{item.person_sell}}">{{item.person_sell}}</a>
                         </div>
                         <div class="pt-2 pb-2 text-center">
-                            <button class="btn btn-outline b-warn text-warn btn-xs"><i class="fa fa-btc"></i> {{item.price | number}}</button>
+                            <button class="btn btn-outline b-warn text-warn btn-xs" data-toggle="modal"
+                                    data-target="#buyItemModal" ng-click="selectItem(item)"><i class="fa fa-btc"></i> {{item.price | number}}</button>
                         </div>
                     </div>
                     <script id="template1.html" type="text/ng-template">
@@ -257,10 +257,10 @@
             1. Những món đồ bán ở đây là do thành viên đăng bán.<br>
             2. Bạn mua đồ trên chợ ảo hoàn toàn an tâm, không bị lừa đảo<br>
             3. Khi mua đồ, bạn phải chịu thuế VAT 1%<br>
-            4. Món đồ sẽ được chuyển vào hòm đồ ảo của bạn.<br>
+            4. Món đồ sẽ được chuyển vào hòm đồ của bạn.<br>
             5. Click vào <b>đồ của bạn</b> để xem những món hàng bạn đã đăng, khi mua những món hàng của chính bạn, bạn
             sẽ không phải trả phí.<br>
-            7. Bạn muốn đăng bán đồ, hãy sử dụng <a href="#auth/WarehouseWeb.asp">Hòm đồ ảo</a><br>
+            7. Bạn muốn đăng bán đồ, hãy sử dụng <a ui-sref="app.shop.ware-house">Quản lý hòm dồ</a><br>
         </div>
     </div>
 </div>
