@@ -133,29 +133,34 @@
         <div class="item-content-list col-md-12 mt-2">
             <div class="row row-xs">
                 <div class="m-2" ng-repeat="item in listItem" style="width: 130px;">
-                    <div class="box b-t b-t-black b-r-2x">
+                    <div class="item-list-boder r-3x">
                         <div class="text-center">
-                            <div class="btn-group m-b pt-2">
-                                <button class="btn btn-xs white text-blue" tooltip-placement="bottom"
-                                        uib-tooltip="Đồ level +{{item.level}}">+ {{item.level}}</button>
-                                <button class="btn btn-xs white" tooltip-placement="bottom"
-                                        uib-tooltip="Đồ có {{item.exc_total}} dòng hoàn hảo">{{item.exc_total}} <i class="fa fa-star"></i></button>
-                                <button class="btn btn-xs white"><i class="fa fa-search"></i></button>
+                            <div class="m-b pt-2">
+                                <button class="btn btn-xs white text-blue" tooltip-placement="top"
+                                        uib-tooltip="Đồ level +{{item.level}}">+ {{item.level}}
+                                </button>
+                                <button class="btn btn-xs white text-danger" tooltip-placement="top" style="margin-left: -6px;"
+                                        uib-tooltip="Đồ có {{item.exc_total}} dòng hoàn hảo">{{item.exc_total}} <i class="fa fa-star"></i>
+                                </button>
+                                <button class="btn btn-xs white" style="margin-left: -6px;" ng-click="submit(0, '0', item.item_group)" tooltip-placement="top" 
+                                        uib-tooltip="Mời click để tìm đồ cùng loại"><i class="fa fa-search"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="row-col text-center">
-                            <a  uib-popover-template="'template1.html'" data-popover-trigger="mouseenter" popover-placement="bottom">
+                            <a uib-popover-template="'template1.html'" popover-title="{{item.person_sell}} bán {{item.price | number}} bạc lúc {{item.date_sell}}" 
+                                data-popover-trigger="mouseenter" popover-placement="bottom" data-animation="am-flip-x">
                                 <div data-toggle="popover" style="cursor: pointer; min-height: 65px">
                                     <img ng-src="assets/images/items/{{item.image}}.gif" style="max-height:65px; max-width:80px;">
                                 </div>
                             </a>
                         </div>
-                        <div class="text-center pt-3">
+                        <div class="text-center pt-2">
                             <i class="text-muted fa fa-user"></i>
-                            <a class="text-info sm" ng-click="submit(0, '0', '', searchKey)" tooltip-placement="bottom"
+                            <a class="text-info sm" ng-click="submit(0, '0', '', item.person_sell)" tooltip-placement="bottom"
                                uib-tooltip="Click để tìm kiếm các món hàng của {{item.person_sell}}">{{item.person_sell}}</a>
                         </div>
-                        <div class="p-a text-center">
+                        <div class="pt-2 pb-2 text-center">
                             <button class="btn btn-outline b-warn text-warn btn-xs"><i class="fa fa-btc"></i> {{item.price | number}}</button>
                         </div>
                     </div>
@@ -230,13 +235,13 @@
                             Trang đầu
                         </button>
 
-                        <button ng-if="page > 0" class="btn btn-info" type="button" ng-click="submit(page - 1, selectClass, selectGroup, search_key)">
+                        <button ng-if="page > 0" class="btn btn-info" type="button" ng-click="submit(page - 1, selectClass, selectGroup, searchKey)">
                             <i class="fa fa-angle-left"></i> Trước
                         </button>
 
                         <button class="btn btn-default" type="button">-</button>
 
-                        <button ng-if="listItem.length >= 20" class="btn btn-info" type="button" ng-click="submit(page + 1, selectClass, selectGroup, search_key)">
+                        <button ng-if="listItem.length >= 20" class="btn btn-info" type="button" ng-click="submit(page + 1, selectClass, selectGroup, searchKey)">
                             Tiếp <i class="fa fa-angle-right"></i></button>
                     </div>
 
@@ -245,6 +250,16 @@
                     </div>
                 </center>
             </div>
+        </div>
+
+        <div class="alert alert-info mt-5">
+            1. Những món đồ bán ở đây là do thành viên đăng bán.<br>
+            2. Bạn mua đồ trên chợ ảo hoàn toàn an tâm, không bị lừa đảo<br>
+            3. Khi mua đồ, bạn phải chịu thuế VAT 1%<br>
+            4. Món đồ sẽ được chuyển vào hòm đồ ảo của bạn.<br>
+            5. Click vào <b>đồ của bạn</b> để xem những món hàng bạn đã đăng, khi mua những món hàng của chính bạn, bạn
+            sẽ không phải trả phí.<br>
+            7. Bạn muốn đăng bán đồ, hãy sử dụng <a href="#auth/WarehouseWeb.asp">Hòm đồ ảo</a><br>
         </div>
     </div>
 </div>

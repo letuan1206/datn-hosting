@@ -21,7 +21,7 @@
             $scope.selectClass = selectClass;
             $scope.page = page;
             $scope.selectGroup = selectGroup;
-            $scope.search_key = searchKey;
+            $scope.searchKey = searchKey;
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
