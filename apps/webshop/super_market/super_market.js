@@ -39,5 +39,40 @@
             $window.scrollTo(0, 0);
         };
         $scope.submit($scope.page);
+
+        $scope.selectItem = function (item) {
+            $scope.itemChoose = item;
+        };
+
+        $scope.buyItem = function () {
+            var url = SERVER_API + "webshop/buyItemSuperMarket";
+    
+            var data = {
+                account: $rootScope.user.memb___id,
+                pass2: $scope.pass2,
+                item_id: $scope.itemChoose.item_id
+            };
+            console.log(data);
+    
+            $http.post(url, data, set_header(), {
+                withCredentials: true
+            }).then(function (response) {
+                if (response.data.status === RESPONSE_STATUS_SUCCESS) {
+                    $scope.pass2 = '';
+                    $('#buyItemModal').modal('hide');
+                    $('#buyItemModalSuccess').modal('show');
+                    toastr.success(response.data.message, {
+                        closeButton: true
+                    });
+                } else if (response.data.status === RESPONSE_STATUS_ERROR) {
+                    toastr.error(response.data.message, {
+                        closeButton: true
+                    });
+                }
+            }, function (err) {
+                $scope.isServerError = false;
+            });
+            $window.scrollTo(0, 0);
+        };
     }
 })();

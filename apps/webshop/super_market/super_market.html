@@ -133,7 +133,8 @@
         <div class="item-content-list col-md-12 mt-2">
             <div class="row row-xs">
                 <div class="m-2" ng-repeat="item in listItem" style="width: 130px;">
-                    <div class="item-list-boder r-3x">
+                    <div class="item-list-boder r-3x" data-toggle="modal"
+                    data-target="#buyItemModal" ng-click="selectItem(item)">
                         <div class="text-center">
                             <div class="m-b pt-2">
                                 <button class="btn btn-xs white text-blue" tooltip-placement="top"
@@ -260,6 +261,55 @@
             5. Click vào <b>đồ của bạn</b> để xem những món hàng bạn đã đăng, khi mua những món hàng của chính bạn, bạn
             sẽ không phải trả phí.<br>
             7. Bạn muốn đăng bán đồ, hãy sử dụng <a href="#auth/WarehouseWeb.asp">Hòm đồ ảo</a><br>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="buyItemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mua đồ ({{user.memb___id}})</h5>
+                <div class="bootstrap-dialog-close-button" style="display: block;">
+                    <button class="close" data-dismiss="modal">×</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div style="text-align: center;">
+                            <img ng-src="assets/images/items/{{itemChoose.image}}.gif" border="0"
+                                    popover-title="{{item.name}}" uib-popover-template="'template2.html'"
+                                    data-popover-trigger="mouseenter" popover-placement="bottom"
+                                    style="margin: auto;max-height:100px; max-width:100px; cursor: pointer;">
+
+                            <script id="template2.html" type="text/ng-template">
+                                <p ng-bind-html="itemChoose.info"></p>
+                            </script>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 text-right">Giá mua</label>
+                        <div class="col-md-7">
+                            <input type="hidden" class="form-control" placeholder="Giá mua">
+                            <p class="label green-500 text-sm"><strong>{{itemChoose.price | number}}
+                                    Bạc</strong>
+                            </p></div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 text-right">Mật khẩu cấp 2</label>
+                        <div class="col-md-7">
+                            <input type="password" class="form-control rounded" ng-model="pass2" value="" placeholder="********">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="display: block;">
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success" ng-click="buyItem()">Mua đồ về hòm đồ</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Đóng lại</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
