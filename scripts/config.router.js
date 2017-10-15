@@ -240,6 +240,13 @@
                 controller: "ClearPKCtrl",
                 resolve: load('apps/character/clear_pk/clear_pk.js')
             })
+            .state('app.character.resets', {
+                url: '/resets',
+                templateUrl: 'apps/character/resets/reset.html',
+                data: { title: 'Reset Character' },
+                controller: "ResetsCtrl",
+                resolve: load('apps/character/resets/reset.js')
+            })
             // bank router
             .state('app.event', {
                 url: '/event',

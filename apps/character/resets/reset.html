@@ -1,0 +1,217 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Reset nhân vật {{charChoose.Name}}</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+    <div class="box-body">
+        <!--<div class="form-group row">-->
+        <!--<label class="col-sm-3 text-right _600">Chọn nhân vật</label>-->
+        <!--<div class="col-sm-7">-->
+        <!--<select data-ng-model="$root.charChoose" name="charChoose" class="form-control r-2x"-->
+        <!--ng-options="char.Name for char in charList">-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="b-b b-blue nav-active-blue">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href data-toggle="tab" data-target="#reset">Reset</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href data-toggle="tab" data-target="#resetvip">Reset VIP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href data-toggle="tab" data-target="#resetvippo">Reset VIP PO</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content p-a m-b-md">
+                    <div class="tab-pane animated fadeIn text-muted active" id="reset">
+
+                        <!--<div class="form-group row">-->
+                            <!--<label class="col-sm-3 text-right _600">Chọn kiểu Reset</label>-->
+                            <!--<div class="col-sm-7 controls">-->
+                                <!--<p><label class="md-check"><input type="radio" name="radio" ng-model="resetChoose"-->
+                                                                  <!--id="myAct2" value="reset"-->
+                                                                  <!--ng-click="selectReset()">-->
+                                    <!--<i class="blue"></i> Reset Miễn Phí (Không mất Bạc)</label>-->
+                                <!--</p>-->
+                                <!--<p><label class="md-check"><input type="radio" name="radio" ng-model="resetChoose"-->
+                                                                  <!--id="myAct4" value="reset_vip"-->
+                                                                  <!--ng-click="selectReset()">-->
+                                    <!--<i class="blue"></i> Reset VIP (Tặng Point Ảo)</label>-->
+                                <!--</p>-->
+                                <!--<p><label class="md-check"><input type="radio" name="radio" ng-model="resetChoose"-->
+                                                                  <!--id="myAct8"-->
+                                                                  <!--value="reset_vip_po" ng-click="selectReset()">-->
+                                    <!--<i class="blue"></i> Reset VIP PO (Phí 40 PO)</label>-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600">Reset lần thứ</label>
+                            <div class="col-sm-7">
+                                <label class="text-right _600">{{resetNext}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600">TOP lúc 0h00</label>
+                            <div class="col-sm-7">
+                                <label class="text-right _600">{{charChoose.Top_0h}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600">Reset / Ngày</label>
+                            <div class="col-sm-7">
+                                <label class="text-right _600">{{charChoose.Top_0h}} / {{charChoose.reset_limit}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600">Zen</label>
+                            <div class="col-sm-7">
+                                <label class="text-right _600">{{resetSelect.zen_reset | number}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600">Level</label>
+                            <div class="col-sm-7">
+                                <label class="text-right _600">{{charChoose.cLevel}} /
+                                    {{resetSelect.level_reset}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 _600 text-right">Đổi nhân vật</label>
+                            <div class="col-sm-7">
+                                <span class="label green-500" ng-show="charChoose.doinv">Đã đổi</span>
+                                <span class="label red-500" ng-show="!charChoose.doinv">Chưa đổi</span><br>
+                                <small>(Sau khi đổi nhân vật khác trong Game, hãy chọn lại nhân vật)</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 _600 text-right">Thoát game</label>
+                            <div class="col-sm-7">
+                                <label class="label green-500" ng-show="charChoose.online == 0">Đã thoát</label>
+                                <label class="label red-500" ng-show="charChoose.online == 1">Chưa thoát</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600"></label>
+                            <div class="col-sm-7 controls">
+                                <button type="submit" class="btn btn-info" ng-click="submit(1)">Reset nhân vật</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane animated fadeIn text-muted" id="resetvip">
+                        <div class="form-group row">
+                            <label class="col-sm-3 _600 text-right">Đổi nhân vật</label>
+                            <div class="col-sm-7">
+                                <span class="label green-500" ng-show="charChoose.doinv">Đã đổi</span>
+                                <span class="label red-500" ng-show="!charChoose.doinv">Chưa đổi</span><br>
+                                <small>(Sau khi đổi nhân vật khác trong Game, hãy chọn lại nhân vật)</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 _600 text-right">Thoát game</label>
+                            <div class="col-sm-7">
+                                <label class="label green-500" ng-show="charChoose.online == 0">Đã thoát</label>
+                                <label class="label red-500" ng-show="charChoose.online == 1">Chưa thoát</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 text-right _600"></label>
+                            <div class="col-sm-7 controls">
+                                <button type="submit" class="btn btn-info" ng-click="submit(1)">Reset nhân vật</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-sm-12">
+                <div class="b-b b-blue nav-active-blue">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href data-toggle="tab" data-target="#tab1">Quy định Reset</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href data-toggle="tab" data-target="#tab2">Kiểu Reset</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href data-toggle="tab" data-target="#tab3">Ưu đãi</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content p-a m-b-md">
+                    <div class="tab-pane animated fadeIn text-muted active" id="tab1">
+                        <table id="customers" class="table-hover table-striped ">
+                            <tbody>
+                            <tr>
+                                <th>Reset</th>
+                                <th>Level(RS VIP)</th>
+                                <th>Point</th>
+                                <th>Bạc (RS VIP)</th>
+                                <th>Zen</th>
+                                <th>Mệnh Lệnh</th>
+                            </tr>
+                            <tr ng-repeat="ri in resetInfo">
+                                <td class="text-center"> > {{ri.reset}}</td>
+                                <td>{{ri.level_reset}}</td>
+                                <td>{{ri.point | number}}</td>
+                                <td>{{ri.sliver | number}}</td>
+                                <td>{{ri.zen_reset | number}}</td>
+                                <td>{{ri.leadership}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane animated fadeIn text-muted" id="tab2">
+                        <div class="panel-body">
+                            <h4> Các chương trình reset và tặng phẩm </h4>
+                            <ol>
+                                <li><strong>Reset VIP</strong>:<br>
+                                    - Sau khi reset, nhân vật + 500 point ảo + 5% tổng số point (Point này sẽ mất
+                                    khi bạn reset lần tiếp theo)<br>
+                                    - Mỗi lần reset được thưởng 8 điểm Phúc Duyên
+                                </li>
+                                <li><strong>Reset Vượt mức</strong>:<br>
+                                    - Sau khi reset, nhân vật + 500 point ảo + 5% tổng số point (Point này sẽ mất
+                                    khi bạn reset lần tiếp theo)<br>
+                                    - Mỗi lần reset được thưởng 8 điểm Phúc Duyên
+                                </li>
+                                <li><strong>Reset VIP P.O </strong>: 40 P.O/lần rs.<br>
+                                    - Sau khi reset, nhân vật được + 1000 point ảo (Point này sẽ mất khi bạn reset
+                                    lần tiếp theo) <br>
+                                    - Mỗi lần reset được thưởng 2 điểm Phúc Duyên (reset lần đầu tiên không được
+                                    thưởng)
+                                </li>
+                                <!--
+                                <li><strong>Thưởng điểm Phúc Duyên</strong>:<br>
+                                    - Reset miễn phí:<br>
+                                    reset < 500 lần: 2 điểm Phúc Duyên<br>
+                                    reset > 500 lần: 4 điểm Phúc Duyên
+                                    <br>
+                                    - Reset P.O hoặc VIP Zen:<br>
+                                    reset < 500 lần: 5 điểm Phúc Duyên<br>
+                                    reset > 500 lần: 10 điểm Phúc Duyên
+                                    <br>
+                                    - Reset VIP:<br>
+                                    reset < 500 lần: 10 điểm Phúc Duyên<br>
+                                    reset > 500 lần: 20 điểm Phúc Duyên
+                                </li>
+                                -->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

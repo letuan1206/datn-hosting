@@ -19,7 +19,7 @@
             $http.post(url, data, {
                 withCredentials: true
             }).then(function (response) {
-                if (response.data.status == RESPONSE_STATUS_SUCCESS) {
+                if (response.data.status === RESPONSE_STATUS_SUCCESS) {
                     $scope.charList = (response.data.data);
                     angular.forEach($scope.charList, function (value, key) {
                         value['avatar'] = get_link_avatar_character(value.Class);
@@ -31,7 +31,7 @@
                     $rootScope.listChar = $scope.charList;
                     $window.sessionStorage.setItem(LOCALSTORAGE_CHARCHOOSE, JSON.stringify($scope.charList[0]));
                     $rootScope.charChoose = $rootScope.listChar[0];
-                } else if (response.data.status == RESPONSE_STATUS_ERROR) {
+                } else if (response.data.status === RESPONSE_STATUS_ERROR) {
                     $scope.message = response.data.message;
                 }
             }, function (err) {
@@ -49,7 +49,7 @@
             $http.post(url, data, {
                 withCredentials: true
             }).then(function (response) {
-                if (response.data.status == RESPONSE_STATUS_SUCCESS) {
+                if (response.data.status === RESPONSE_STATUS_SUCCESS) {
                     $scope.charList = (response.data.data);
                     angular.forEach($scope.charList, function (value, key) {
                         value['avatar'] = get_link_avatar_character(value.Class);
@@ -66,7 +66,7 @@
                             $rootScope.charChoose = $rootScope.listChar[key];
                         }
                     });
-                } else if (response.data.status == RESPONSE_STATUS_ERROR) {
+                } else if (response.data.status === RESPONSE_STATUS_ERROR) {
                     $scope.message = response.data.message;
                 }
             }, function (err) {
