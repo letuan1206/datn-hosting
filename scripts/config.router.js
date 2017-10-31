@@ -278,6 +278,13 @@
                 controller: "SuperMarketCtrl",
                 resolve: load('apps/webshop/super_market/super_market.js')
             })
+            .state('app.shop.shop-online', {
+                url: '/shop-online',
+                templateUrl: 'apps/webshop/shop_online/shop_online.html',
+                data: { title: 'Shop Online Market' },
+                controller: "ShopOnlineCtrl",
+                resolve: load('apps/webshop/shop_online/shop_online.js')
+            })
           ;
 
         function load(srcs, callback) {

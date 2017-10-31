@@ -218,3 +218,8 @@ h2.box-character-name {
     text-align: left;
     padding: 8px;
 }
+
+.modal-header-custom {
+    background-color: #2a2b3c !important;
+    color: white;
+}

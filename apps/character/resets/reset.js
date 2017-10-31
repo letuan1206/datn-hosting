@@ -21,7 +21,6 @@
                         $scope.resetSelect = $scope.resetInfo[i];
                         console.log($scope.resetSelect);
                     }
-                    // console.log($scope.resetInfo[i]);
                 }
             }, function (err) {
                 $scope.isServerError = false;
@@ -32,6 +31,21 @@
         $scope.resetChoose = 'reset';
         $scope.selectReset = function () {
             console.log( $scope.resetChoose)
+        }
+
+        $scope.reset = function() {
+            var url = SERVER_API + "character/reset";
+            var data = {
+                account: $rootScope.user.memb___id,
+                name: $rootScope.charChoose.Name
+            };
+            $http.post(url, {
+                withCredentials: true
+            }).then(function (response) {
+                console.log(response);
+            }, function (err) {
+                $scope.isServerError = false;
+            });
         }
     }
 })();

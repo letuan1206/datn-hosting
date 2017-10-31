@@ -68,11 +68,11 @@
 <div class="modal fade" id="sellItemToMarket" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-header-custom">
                 <h5 class="modal-title">Định giá đồ đưa lên chợ
                 </h5>
                 <div class="bootstrap-dialog-close-button" style="display: block;">
-                    <button class="close" data-dismiss="modal">×</button>
+                    <button class="close modal-header-custom" data-dismiss="modal">×</button>
                 </div>
             </div>
             <div class="modal-body">
@@ -87,7 +87,7 @@
                                                 right: 0; 
                                                 bottom: 0;
                                                 height:60px; 
-                                                max-width:60px;">
+                                                width:60px;">
                                 </div>
                                 <div class="col-sm-6">
                                     <h5 class="product-name"><strong>{{value.name}}</strong></h5>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="p-a text-right">
+                <div class="text-right">
                     <button type="button" class="btn btn-success" ng-click="postItemToMarket()">
                         Đưa lên chợ
                     </button>
