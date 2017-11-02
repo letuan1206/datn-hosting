@@ -223,3 +223,7 @@ h2.box-character-name {
     background-color: #2a2b3c !important;
     color: white;
 }
+
+.nav > li > a .nav-text {
+    font-weight: 550 !important;
+}

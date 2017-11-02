@@ -42,8 +42,18 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
+                if(response.data.status === RESPONSE_STATUS_SUCCESS) {
+                    toastr.success(response.data.message, {
+                        closeButton: true
+                    });
+                } else {
+                    toastr.error(response.data.message, {
+                        closeButton: true
+                    });
+                }
                 console.log(response);
             }, function (err) {
+                
                 $scope.isServerError = false;
             });
         }

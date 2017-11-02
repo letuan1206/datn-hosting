@@ -285,6 +285,13 @@
                 controller: "ShopOnlineCtrl",
                 resolve: load('apps/webshop/shop_online/shop_online.js')
             })
+            .state('app.ranking', {
+                url: '/ranking',
+                templateUrl: 'apps/ranking/ranking.html',
+                data: { title: 'Ranking' },
+                controller: "RankingCtrl",
+                resolve: load('apps/ranking/ranking.js')
+            })
           ;
 
         function load(srcs, callback) {
