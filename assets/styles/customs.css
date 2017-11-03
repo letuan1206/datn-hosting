@@ -227,3 +227,51 @@ h2.box-character-name {
 .nav > li > a .nav-text {
     font-weight: 550 !important;
 }
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-evenly;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 60px;
+}
+
+.flex-item {
+    width: 72px;
+    height: 72px;
+    padding-top: 1px;
+}
+
+.flex-item-image {
+    display: block;
+    width: 72px;
+    height: 72px;
+    border-radius: 10%;
+    background-position: center center;
+    background-size: cover;
+    border: 2px solid #faa602;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.flex-item-image:hover {
+    cursor: pointer;
+    opacity: .8;
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.webshop-image-item {
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.webshop-image-item:hover {
+    -webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}

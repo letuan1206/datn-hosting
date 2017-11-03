@@ -1,19 +1,22 @@
 var gulp = require('gulp');
-var pug = require('gulp-pug');
-var less = require('gulp-less');
-var minifyCSS = require('gulp-csso');
+var bs = require('browser-sync').create();
 
-gulp.task('html', function(){
-  return gulp.src('client/templates/*.pug')
-    .pipe(pug())
-    .pipe(gulp.dest('build/html'))
+gulp.task('browser-sync', function () {
+  bs.init({
+    server: {
+      baseDir: "./"
+    }
+  });
 });
 
-gulp.task('css', function(){
-  return gulp.src('client/templates/*.less')
-    .pipe(less())
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('build/css'))
+gulp.task('watch', ['browser-sync'], function () {
+  gulp.watch([
+    'apps/**/*.js',
+    'assets/**/*.css',
+    'scripts/*.js'
+  ]).on('change', bs.reload);
+  gulp.watch([
+    'apps/**/*.html',
+    'views/**/*.html'
+  ]).on('change', bs.reload);
 });
-
-gulp.task('default', [ 'html', 'css' ]);

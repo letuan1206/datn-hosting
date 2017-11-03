@@ -12,6 +12,7 @@
   "license": "Envato REGULAR LICENSE",
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "csso": "^3.3.1",
     "eslint": "^4.10.0",
     "eslint-plugin-angular": "^3.1.1",
