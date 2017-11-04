@@ -39,7 +39,7 @@
                 account: $rootScope.user.memb___id,
                 name: $rootScope.charChoose.Name
             };
-            $http.post(url, {
+            $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
                 console.log(response);

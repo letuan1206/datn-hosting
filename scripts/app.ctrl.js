@@ -40,9 +40,9 @@
             },
             setting: {
                 theme: {
-                    primary: 'primary',
-                    accent: 'accent',
-                    warn: 'warn'
+                    primary: 'blue',
+                    accent: 'indigo',
+                    warn: 'primary'
                 },
                 folded: false,
                 boxed: true,
