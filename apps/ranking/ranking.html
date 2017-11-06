@@ -31,31 +31,31 @@
 </div>
 
 <div>
-    <table datatable="ng" dt-options="dtOptions" class="row-border hover" id="customers">
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover stripe" id="customers">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Relife</th>
-                <th>Reset</th>
-                <th>Level</th>
-                <th>Level UP Cuối</th>
-                <th>Class</th>
-                <th>Đổi Class</th>
+                <th class="text-center">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Relife</th>
+                <th class="text-center">Reset</th>
+                <th class="text-center">Level</th>
+                <th class="text-center">Level UP Cuối</th>
+                <th class="text-center">Class</th>
+                <th class="text-center">Đổi Class</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in rankData">
-                <td>{{ $index + 1 }}</td>
-                <td tooltip-placement="left-bottom" tooltip-append-to-body="true" uib-tooltip="Reset lần cuối lúc {{item.Resets_Time}}">
+                <td class="text-center">{{ $index + 1 }}</td>
+                <td class="text-center" tooltip-placement="left-bottom" tooltip-append-to-body="true" uib-tooltip="Reset lần cuối lúc {{item.Resets_Time}}">
                     <strong>{{ item.name }}</strong>
                 </td>
-                <td>{{ item.Relifes}}</td>
-                <td>{{ item.Resets}}</td>
-                <td>{{ item.cLevel }}</td>
-                <td>{{ item.LevelUp_Time}}</td>
-                <td>{{ item.Class}}</td>
-                <td>{{ item.Class}}</td>
+                <td class="text-center">{{ item.Relifes}}</td>
+                <td class="text-center">{{ item.Resets}}</td>
+                <td class="text-center">{{ item.cLevel }}</td>
+                <td class="text-center">{{ item.LevelUp_Time}}</td>
+                <td class="text-center">{{ item.Class}}</td>
+                <td class="text-center">{{ item.Class}}</td>
             </tr>
         </tbody>
     </table>

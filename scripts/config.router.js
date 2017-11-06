@@ -285,12 +285,66 @@
                 controller: "ShopOnlineCtrl",
                 resolve: load('apps/webshop/shop_online/shop_online.js')
             })
-            .state('app.ranking', {
+            .state('app.card', {
+                url: '/card',
+                template: '<div ui-view></div>'
+            })
+            .state('app.card.card-info', {
+                url: '/card-info',
+                templateUrl: 'apps/card/card.html',
+                data: { title: 'Card' },
+                controller: "CardCtrl",
+                resolve: load('apps/card/card.js')
+            })
+            .state('app.card.card-phone', {
+                url: '/card-phone',
+                templateUrl: 'apps/card/card_phone.html',
+                data: { title: 'CardPhone' },
+                controller: "CardPhoneCtrl",
+                resolve: load('apps/card/card_phone.js')
+            })
+
+            .state('app.rank', {
+                url: '/rank',
+                template: '<div ui-view></div>'
+            })
+            .state('app.rank.ranking', {
                 url: '/ranking',
                 templateUrl: 'apps/ranking/ranking.html',
                 data: { title: 'Ranking' },
                 controller: "RankingCtrl",
                 resolve: load('apps/ranking/ranking.js')
+            })
+            .state('app.rank.rank-day', {
+                url: '/rank-day',
+                templateUrl: 'apps/ranking/rank_day/rank_day.html',
+                data: { title: 'Rank Reset In Day' },
+                controller: "RankResetInDayCtrl",
+                resolve: load('apps/ranking/rank_day/rank_day.js')
+            })
+            .state('app.rank.rank-top', {
+                url: '/rank-top',
+                templateUrl: 'apps/ranking/top_0h/top_0h.html',
+                data: { title: 'Rank TOP' },
+                controller: "Top0hCtrl",
+                resolve: load('apps/ranking/top_0h/top_0h.js')
+            })
+            .state('app.rank.guild', {
+                url: '/guild',
+                templateUrl: 'apps/ranking/guild/guild.html',
+                data: { title: 'Rank Guild' },
+                controller: "RankGuildCtrl",
+                resolve: load('apps/ranking/guild/guild.js')
+            })
+            .state('app.rank.user-guild', {
+                url: '/user-guild',
+                templateUrl: 'apps/ranking/guild/list_user/list_user.html',
+                data: { title: 'List User In Guild' },
+                controller: "UserGuildCtrl",
+                params: {
+                    guild_name: null
+                },
+                resolve: load('apps/ranking/guild/list_user/list_user.js')
             })
           ;
 
