@@ -1,13 +1,14 @@
 (function () {
     angular.module('app')
-        .controller('Top0hCtrl', Top0hCtrl);
+        .controller('RankResetInDayCtrl', RankResetInDayCtrl);
 
-    function Top0hCtrl($scope, $rootScope, $http, $window, toastr, DTOptionsBuilder, DTColumnBuilder, $q, $stateParams) {
+    function RankResetInDayCtrl($scope, $rootScope, $http, $window, toastr, DTOptionsBuilder, DTColumnBuilder, $q, $stateParams) {
         $scope.guildName = $stateParams.guild_name;
         $scope.rankData = [];
-        $scope.yesterday = moment().subtract(1, 'days').format('DD/MM/YYYY');
-        $scope.getListTop = function () {
-            var url = SERVER_API + 'ranking/getRankTop';
+        $scope.today = moment().format('DD/MM/YYYY');
+
+        $scope.getListRankResetInDay = function () {
+            var url = SERVER_API + 'ranking/getRankDay';
 
             $http.get(url, set_header(), {
                 withCredentials: true
@@ -15,15 +16,12 @@
                 $scope.rankData = response.data.data;
                 angular.forEach($scope.rankData, function (value, key) {
                     value['Class'] = get_class_name(value.Class);
-                    if (value.LevelUp_Time !== null) {
-                        value['LevelUp_Time'] = moment(value.LevelUp_Time).format('DD/MM/YYYY HH:mm:ss');
-                    }
                 });
             }, function (err) {
                 $scope.isServerError = false;
             })
         }
-        $scope.getListTop();
+        $scope.getListRankResetInDay();
 
         $scope.dtOptions = DTOptionsBuilder.newOptions()
             .withPaginationType('full_numbers')

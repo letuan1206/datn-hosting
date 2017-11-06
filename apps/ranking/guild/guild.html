@@ -1,0 +1,32 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Xếp hạng Bang hội</h2>
+    </div>
+</div>
+
+<div>
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover" id="customers">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Logo</th>
+                <th class="text-center">Bang hội</th>
+                <th class="text-center">Chủ hội</th>
+                <th class="text-center">Thành viên</th>
+                <th class="text-center">Reset tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="value in rankData">
+                <td class="text-center">{{$index + 1}}</td>
+                <td class="text-center">
+                    <canvas id="canvas[{{$index}}]" style="border: 1px gray solid;">{{drawLogo($index, value.G_Mark)}}</canvas>
+                </td>
+                <td class="text-center"><strong><a ui-sref="app.rank.user-guild({guild_name: value.G_Name})">{{value.G_Name}}</a></strong></td>
+                <td class="text-center">{{value.G_Master}}</td>
+                <td class="text-center">{{value.G_Count}}</td>
+                <td class="text-center">{{value.G_Reset}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
