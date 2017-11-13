@@ -8,18 +8,20 @@
     <div class="col-xs-4 col-sm-12 col-md-4">
         <div class="vd_status-widget vd_bg-red widget">
             <div class="vd_panel-menu">
-                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"> <i class="icon-cycle"></i> </div>
+                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font">
+                    <i class="icon-cycle"></i>
+                </div>
             </div>
             <!-- vd_panel-menu -->
 
             <a class="panel-body" ui-sref="app.card.card-phone">
                 <div class="clearfix">
                     <span class="menu-value">
-									Nạp thẻ
-								</span>
+                        Nạp thẻ
+                    </span>
                     <span class="menu-icon">
-									<i class="fa fa-btc"></i> 
-								</span>
+                        <i class="fa fa-btc"></i>
+                    </span>
                 </div>
                 <div class="menu-text clearfix">
                     Dùng thẻ Viettel, Mobi, Vina, Gate để đổi bạc
@@ -30,16 +32,18 @@
     <div class="col-xs-4 col-sm-12 col-md-4">
         <div class="vd_status-widget vd_bg-yellow widget">
             <div class="vd_panel-menu">
-                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"> <i class="icon-cycle"></i> </div>
+                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font">
+                    <i class="icon-cycle"></i>
+                </div>
             </div>
             <a class="panel-body" ui-sref="app.bank.change-money">
                 <div class="clearfix">
                     <span class="menu-value">
-									Mua Cash
-								</span>
+                        Mua Cash
+                    </span>
                     <span class="menu-icon">
-									<i class="fa fa-money"></i> 
-								</span>
+                        <i class="fa fa-money"></i>
+                    </span>
                 </div>
                 <div class="menu-text clearfix">
                     Đổi bạc thành cash để dùng trong Game
@@ -50,21 +54,24 @@
     <div class="col-xs-4 col-sm-12 col-md-4">
         <div class="vd_status-widget vd_bg-blue widget">
             <div class="vd_panel-menu">
-                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font"> <i class="icon-cycle"></i> </div>
+                <div data-action="refresh" data-original-title="Refresh" data-rel="tooltip" class=" menu entypo-icon smaller-font">
+                    <i class="icon-cycle"></i>
+                </div>
             </div>
             <!-- vd_panel-menu -->
 
             <a class="panel-body" href="#auth/CardTanThu.asp">
                 <div class="clearfix">
                     <span class="menu-value">
-									Thẻ Giftcode
-								</span>
+                        Thẻ Giftcode
+                    </span>
                     <span class="menu-icon">
-									<i class="fa fa-child"></i> 
-								</span>
+                        <i class="fa fa-child"></i>
+                    </span>
                 </div>
                 <div class="menu-text clearfix">
-                    Nạp thẻ quà tặng để nhận bạc và lần reset tùy theo chương trình<br>
+                    Nạp thẻ quà tặng để nhận bạc và lần reset tùy theo chương trình
+                    <br>
                 </div>
             </a>
         </div>
@@ -77,10 +84,42 @@
     </div>
     <div class="box-divider m-a-0"></div>
     <div class="alert ng-isolate-scope alert-warning alert-dismissible m-3">
-        <div class="well well-sm">Nếu bạn có bất cứ thắc mắc gì về nạp thẻ, vui lòng dùng nhắn tin đến 
-            <button type="button" class="btn btn-warning btn-sm"><i class="fa fa-envelope append-icon"></i> 0904.45.44.44</button>
-            <br>Bạn vui lòng ghi rõ tên acc, seri thẻ. loại thẻ và nội dung thắc mắc.<br>2. Bạn vui lòng nhấp chuột để xem
-            <a class="btn btn-warning btn-sm" href="#auth/napthe.asp?view=1">Danh sách thẻ đã nạp</a></div>
+        <div class="well well-sm">Nếu bạn có bất cứ thắc mắc gì về nạp thẻ, vui lòng dùng nhắn tin đến
+            <button type="button" class="btn btn-warning btn-sm">
+                <i class="fa fa-envelope append-icon"></i> 0904.45.44.44</button>
+            <br>Bạn vui lòng ghi rõ tên acc, seri thẻ. loại thẻ và nội dung thắc mắc.
+            <br>2. Bạn vui lòng nhấp chuột để xem
+            <a class="btn btn-warning btn-sm" ng-click="showCard()">Danh sách thẻ đã nạp</a>
+        </div>
     </div>
-    <br>
+    <div class="box-body">
+        <table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="customers" ng-show="show">
+            <thead class="vd_bg-blue vd_white">
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Ngày nạp</th>
+                    <!-- <th>Ngày duyệt</th> -->
+                    <th>Seri thẻ</th>
+                    <th>Loại thẻ</th>
+                    <th>Mệnh giá</th>
+                    <th class="text-center">Tình trạng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr align="center" ng-repeat="list in listCard">
+                    <td class="text-center">{{$index + 1}}</td>
+                    <td>{{list.created_at}}</td>
+                    <!-- <td>{{list.updated_at}}</td> -->
+                    <td>{{list.card_seri}}</td>
+                    <td>{{list.card_type}}</td>
+                    <td>{{list.card_value | number}}</td>
+                    <td class="text-center">
+                        <span ng-if="list.status == 2" class="label red">Thẻ sai</span>
+                        <span ng-if="list.status == 1" class="label green">Thẻ đúng</span>
+                        <span ng-if="list.status == 0" class="label dark">Đang chờ</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

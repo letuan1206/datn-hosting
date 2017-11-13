@@ -5,57 +5,94 @@
 </div>
 <div class="white r box-shadow-z0 b">
     <div class="row no-gutter text-primary-hover b-t">
-        <div class="col-md-2 b-r" tooltip-placement="bottom"
-             uib-tooltip="Cash Shop"><a class="p-a block text-center" ui-toggle-class="">
-            <i class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Group</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm none"></i> <i
-                class="material-icons md-24 text-danger m-v-sm inline"></i> <span class="block">Like</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Chat</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Group</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm none"></i> <i
-                class="material-icons md-24 text-danger m-v-sm inline"></i> <span class="block">Like</span></a></div>
-        <div class="col-md-2"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Chat</span></a></div>
+        <div class="col-md-2 b-r" tooltip-placement="bottom" uib-tooltip="Cash Shop">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
+                <i class="material-icons md-24 text-danger m-v-sm none"></i>
+                <span class="block">Group</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm none"></i>
+                <i class="material-icons md-24 text-danger m-v-sm inline"></i>
+                <span class="block">Like</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
+                <i class="material-icons md-24 text-danger m-v-sm none"></i>
+                <span class="block">Chat</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
+                <i class="material-icons md-24 text-danger m-v-sm none"></i>
+                <span class="block">Group</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm none"></i>
+                <i class="material-icons md-24 text-danger m-v-sm inline"></i>
+                <span class="block">Like</span>
+            </a>
+        </div>
+        <div class="col-md-2">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
+                <i class="material-icons md-24 text-danger m-v-sm none"></i>
+                <span class="block">Chat</span>
+            </a>
+        </div>
     </div>
 </div>
 <div class="row pt-3">
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box blue-600 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_sliver |
-                    number}} Bạc">
-                <div class="text-right p-4 text-white text-md"><em><strong>{{res.data.bank_sliver | number}}</strong></em>
-                    <i class="text-lg pl-2 fa fa-btc"></i></div>
-            </div>
-        </a>
+        <div class="vd_status-widget vd_bg-blue widget">
+            <a class="panel-body" ui-sref="app.card.card-phone" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_sliver |
+                number}} Bạc">
+                <div class="clearfix">
+                    <span class="menu-value">
+                        <i class="fa fa-btc"></i>
+                    </span>
+                    <span class="menu-icon">
+                        {{res.data.bank_sliver | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box orange-400 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_jewel |
-                    number}} Jewel">
-                <div class="text-right p-4 text-white text-md"><em><strong>{{res.data.bank_jewel | number}}</strong></em>
-                    <i class="text-lg pl-2 fa fa-diamond"></i></div>
-            </div>
-        </a>
+        <div class="vd_status-widget vd_bg-yellow widget">
+            <a class="panel-body" ui-sref="app.bank.jewel-action" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_jewel |
+                number}} Jewel">
+                <div class="clearfix">
+                    <span class="menu-value">
+                            <i class="text-lg pl-2 fa fa-diamond"></i>
+                    </span>
+                    <span class="menu-icon">
+                        {{res.data.bank_jewel | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box red-600 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_zen |
-                    number}} triệu Zen">
-                <div class="text-right p-4 text-white text-md"><em><strong class="pr-2">{{res.data.bank_zen |
-                    number}}</strong></em>
-                    <i class="text-lg fa fa-empire fa-spin"></i></div>
-            </div>
-        </a>
+        <div class="vd_status-widget vd_bg-blue widget" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_zen |
+            number}} triệu Zen">
+            <a class="panel-body" ui-sref="app.bank.jewel-action">
+                <div class="clearfix">
+                    <span class="menu-value">
+                        <i class="text-lg fa fa-empire fa-spin"></i>
+                    </span>
+                    <span class="menu-icon">
+                        </i>{{res.data.bank_zen | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
     </div>
 </div>

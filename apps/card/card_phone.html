@@ -1,3 +1,6 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
 <div class="box">
     <div class="box-header">
         <h2>Nạp thẻ</h2>
@@ -33,6 +36,9 @@
             </div>
         </div>
     </div>
+    <div class="dker p-a text-center">
+        <button type="submit" class="btn btn-info" ng-click="submit()">Nạp thẻ</button>
+    </div>
 </div>
 
 <div class="alert alert-info">Để quá trình nạp thẻ diễn ra thành công, bạn hãy chờ cho đến khi có kết quả báo về. <br> Nếu báo lỗi và không nhận được bạc
@@ -45,7 +51,7 @@
         <h2>Tỉ giá nạp thẻ</h2>
     </div>
     <div class="box-body">
-        <table datatable="ng" dt-options="dtOptions" class="row-border hover stripe" id="customers">
+        <table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="customers">
             <thead>
                 <tr>
                     <th class="text-center">Loại thẻ</th>
@@ -61,14 +67,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="value in rankData">
-                    <td class="text-center">{{value.Top_0h}}</td>
-                    <td class="text-center"><strong>{{value.Name}}</strong></td>
-                    <td class="text-center">{{value.Relife_0h}}</td>
-                    <td class="text-center">{{value.Reset_0h}}</td>
-                    <td class="text-center">{{value.Level_0h}}</td>
-                    <td class="text-center">{{value.Class}}</td>
-                    <td class="text-center">{{value.Level_Time_0h}}</td>
+                <tr ng-repeat="value in listCard">
+                    <td class="text-center"><strong>{{value.type}}</strong></td>
+                    <td class="text-center">{{value.k1000000 | number}}</td>
+                    <td class="text-center">{{value.k500000 | number}}</td>
+                    <td class="text-center">{{value.k300000 | number}}</td>
+                    <td class="text-center">{{value.k200000 | number}}</td>
+                    <td class="text-center">{{value.k100000 | number}}</td>
+                    <td class="text-center">{{value.k50000 | number}}</td>
+                    <td class="text-center">{{value.k30000 | number}}</td>
+                    <td class="text-center">{{value.k20000 | number}}</td>
+                    <td class="text-center">{{value.k10000 | number}}</td>
                 </tr>
             </tbody>
         </table>
