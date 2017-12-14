@@ -9,6 +9,7 @@
         var vm = $scope;
 
         $scope.submit = function () {
+            $scope.loging = true;
             $.getJSON('//freegeoip.net/json/?callback=?', function(result) {
                 console.log(result);
                 var url = SERVER_API + "login";
@@ -75,8 +76,10 @@
                         // }, function (err) {
                         //     $scope.isServerError = false;
                         // });
+                        $scope.loging = false;
 
                     } else if (response.data.status === RESPONSE_STATUS_ERROR) {
+                        $scope.loging = false;
                         $scope.message = response.data.message;
                     }
                 }, function (err) {

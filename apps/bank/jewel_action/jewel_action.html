@@ -7,21 +7,19 @@
     </div>
     <div class="box-divider m-a-0"></div>
     <div class="alert alert-info m-3">
-        1. Phí rút zen: <strong>1 PO / 1 lần</strong> <br>
-        2. Phí rút Jewel là <strong>1.000 bạc / 1 lần</strong> (Số lượng mỗi lần rút là bội số của 10)<br>
-        3. Bạn hãy chọn ngọc cần gửi/rút, tỉ giá quy đổi:<br>
+        1. Phí rút zen: <strong>1 PO / 1 lần</strong> <br> 2. Phí rút Jewel là <strong>1.000 bạc / 1 lần</strong> (Số lượng
+        mỗi lần rút là bội số của 10)<br> 3. Bạn hãy chọn ngọc cần gửi/rút, tỉ giá quy đổi:<br>
         <ul>
             <li>1 Ngọc Ước Nguyện = {{bless_to_jewel}} Jewel</li>
             <li>1 Ngọc Tâm Linh = {{soul_to_jewel}} Jewel</li>
             <li>1 Ngọc Sinh Mệnh = {{life_to_jewel}} Jewel</li>
         </ul>
-        4. Để rút ngọc, bạn cần để trống hàng trên cùng của hành trang. Số lượng rút ngọc tối đa được 8 ô x 30 =
-        240 viên/1 lần
+        4. Để rút ngọc, bạn cần để trống hàng trên cùng của hành trang. Số lượng rút ngọc tối đa được 8 ô x 30 = 240 viên/1 lần
     </div>
     <div class="box-body">
         <form class="form-horizontal">
             <div class="form-group row">
-                <label class="col-sm-3 control-label">Mời bạn chọn lệnh</label>
+                <label class="col-sm-3 control-label _600 text-right">Mời bạn chọn lệnh</label>
                 <div class="col-sm-7 controls">
                     <p><label class="md-check"><input type="radio" name="radio" ng-model="myAct" id="myAct2" value="guizen" ng-click="RutGuiJewel()">
                         <i class="blue"></i> Gửi Zen vào Bank</label>
@@ -44,23 +42,25 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 control-label" id="label-quality">Số lượng</label>
+                <label class="col-sm-3 control-label _600 text-right pt-2" id="label-quality">Số lượng</label>
                 <div class="col-sm-7">
                     <input type="text" currency-input="" class="form-control" ng-model="quality" ng-change="RutGuiJewel()" ng-blur="RutGuiJewel(quality)"
-                                             placeholder="Số lượng">
+                        placeholder="Số lượng">
                     <em class="help-block" id="help-quality" ng-show="showInfo">{{infoJewelAction}}</em>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 control-label" id="label-newTel">Chọn nhân vật</label>
+                <label class="col-sm-3 control-label _600 text-right pt-2" id="label-newTel">Chọn nhân vật</label>
                 <div class="col-sm-7">
-                    <select ng-model="charChoose" name="charChoose" class="form-control"
-                            ng-options="char.Name for char in charList"></select>
+                    <select ng-model="charChoose" name="charChoose" class="form-control" ng-options="char.Name for char in charList"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 control-label _600 text-right pt-2" id="label-newTel"></label>
+                <div class="col-sm-7">
+                    <button type="submit" class="btn btn-info" ng-click="submit()">Submit</button>
                 </div>
             </div>
         </form>
-    </div>
-    <div class="dker p-a text-right">
-        <button type="submit" class="btn btn-info" ng-click="submit()">Submit</button>
     </div>
 </div>

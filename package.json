@@ -10,7 +10,9 @@
   "repository": "https://gitlab.com/Heyflat/flatkit.git",
   "author": "Flatfull",
   "license": "Envato REGULAR LICENSE",
-  "dependencies": {},
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "csso": "^3.3.1",

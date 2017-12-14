@@ -5,46 +5,46 @@
 </div>
 <div class="white r box-shadow-z0 b">
     <div class="row no-gutter text-primary-hover b-t">
-        <div class="col-md-2 b-r" tooltip-placement="bottom" uib-tooltip="Cash Shop">
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Cash Shop">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
-                <i class="material-icons md-24 text-danger m-v-sm none"></i>
-                <span class="block">Group</span>
+                <i class="fa fa-money text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-money text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.wcoin | number}}</span>
             </a>
         </div>
-        <div class="col-md-2 b-r">
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Bạc khóa">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm none"></i>
-                <i class="material-icons md-24 text-danger m-v-sm inline"></i>
-                <span class="block">Like</span>
+                <i class="fa fa-credit-card text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-credit-card text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.bank_sliver_lock | number}}</span>
             </a>
         </div>
-        <div class="col-md-2 b-r">
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Jewel khóa">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
-                <i class="material-icons md-24 text-danger m-v-sm none"></i>
-                <span class="block">Chat</span>
+                <i class="fa fa-gavel text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-gavel text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.bank_jewel_lock | number}}</span>
             </a>
         </div>
-        <div class="col-md-2 b-r">
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Phúc duyên">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
-                <i class="material-icons md-24 text-danger m-v-sm none"></i>
-                <span class="block">Group</span>
+                <i class="fa fa-paypal text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-paypal text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.point_bonus | number}}</span>
             </a>
         </div>
-        <div class="col-md-2 b-r">
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Điểm PO (Point Online)">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm none"></i>
-                <i class="material-icons md-24 text-danger m-v-sm inline"></i>
-                <span class="block">Like</span>
+                <i class="fa fa-pinterest-p text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-pinterest-p text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.point_online | number}}</span>
             </a>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" tooltip-placement="top" uib-tooltip="Thời gian vào phòng VIP">
             <a class="p-a block text-center" ui-toggle-class="">
-                <i class="material-icons md-24 text-muted m-v-sm inline"></i>
-                <i class="material-icons md-24 text-danger m-v-sm none"></i>
-                <span class="block">Chat</span>
+                <i class="fa fa-plane text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-plane text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.SCFVipDays | number}}</span>
             </a>
         </div>
     </div>
@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <div class="vd_status-widget vd_bg-blue widget" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_zen |
+        <div class="vd_status-widget vd_bg-red widget" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_zen |
             number}} triệu Zen">
             <a class="panel-body" ui-sref="app.bank.jewel-action">
                 <div class="clearfix">

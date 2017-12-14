@@ -21,7 +21,7 @@
             }, function (err) {
                 $scope.isServerError = false;
             })
-        }
+        };
         $scope.getRankAll('all');
 
         $scope.dtOptions = DTOptionsBuilder.newOptions()

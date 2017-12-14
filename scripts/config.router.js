@@ -240,6 +240,13 @@
                 controller: "ClearPKCtrl",
                 resolve: load('apps/character/clear_pk/clear_pk.js')
             })
+            .state('app.character.change-class', {
+                url: '/change-class',
+                templateUrl: 'apps/character/change_class/change_class.html',
+                data: { title: 'Change Class Character' },
+                controller: "ChangeClassCtrl",
+                resolve: load('apps/character/change_class/change_class.js')
+            })
             .state('app.character.resets', {
                 url: '/resets',
                 templateUrl: 'apps/character/resets/reset.html',
@@ -345,6 +352,26 @@
                     guild_name: null
                 },
                 resolve: load('apps/ranking/guild/list_user/list_user.js')
+            })
+
+            .state('app.chat', {
+                url: '/chat',
+                templateUrl: 'apps/chat/chat.html',
+                data: { title: 'Chat Socket' },
+                controller: "ChatCtrl",
+                resolve: load('apps/chat/chat.js')
+            })
+
+            .state('app.entertainment', {
+                url: '/entertainment',
+                template: '<div ui-view></div>'
+            })
+            .state('app.entertainment.lottery', {
+                url: '/lottery',
+                templateUrl: 'apps/entertainment/lottery.html',
+                data: { title: 'Lottery' },
+                controller: "LotteryCtrl",
+                resolve: load('apps/entertainment/lottery.js')
             })
           ;
 

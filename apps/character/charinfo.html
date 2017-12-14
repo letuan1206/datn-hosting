@@ -41,15 +41,15 @@
                                         </div>
                                     </div>
                                     <div class="list-row">
-                                        <div class="label-info2">Point dư / Point dự trữ</div>
-                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}} / {{charChoose.Point_Reserve | number}}</div>
+                                        <div class="label-info2">Point dư</div>
+                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}}</div>
                                     </div>
-                                    <div class="list-row">
+                                    <!-- <div class="list-row">
                                         <div class="label-info2">PP / PP+</div>
                                         <div class="text-info2">
                                             /
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="list-col">
                                     <div class="list-row">
@@ -62,7 +62,8 @@
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Bùa Exp</div>
-                                        <div class="text-info2"> {{charChoose.SealItem}} <a ng-if="charChoose.SealItem == 0" class="nav-link label blue-500 ml-2" ui-sref="app.character.clear-pk">Mua bùa</a></div>
+                                        <div class="text-info2"> {{charChoose.SealItem}} <a ng-if="charChoose.SealItem == 0" class="nav-link label blue-500 ml-2"
+                                                ui-sref="app.character.clear-pk">Mua bùa</a></div>
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2"></div>
@@ -96,6 +97,7 @@
                                     về làng</a>
                                 <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.clear-pk">Rửa
                                     tội</a>
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.change-class">Đổi giới tính</a>
                             </div>
                         </div>
                     </div>
