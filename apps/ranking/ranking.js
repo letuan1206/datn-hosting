@@ -17,7 +17,6 @@
                         value['LevelUp_Time'] = moment(value.LevelUp_Time).format('DD/MM/YYYY HH:mm:ss');
                     }
                 });
-                console.log(response);
             }, function (err) {
                 $scope.isServerError = false;
             })

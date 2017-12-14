@@ -16,7 +16,6 @@
                 typez: $scope.typez,
                 purpose: $scope.purpose,
             };
-            console.log(data);
 
             $http.post(url, data, set_header(), {
                 withCredentials: true

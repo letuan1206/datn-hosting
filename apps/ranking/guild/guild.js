@@ -12,7 +12,6 @@
                 withCredentials: true
             }).then(function (response) {
                 $scope.rankData = response.data.data;
-                console.log(response);
             }, function (err) {
                 $scope.isServerError = false;
             })

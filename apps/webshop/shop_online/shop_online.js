@@ -22,7 +22,6 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                 if (response.data.status === RESPONSE_STATUS_SUCCESS) {
                     $scope.listItem = response.data.data;
 
@@ -53,7 +52,6 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                 if (response.data.status === RESPONSE_STATUS_SUCCESS) {
                     toastr.success(response.data.message, {
                         closeButton: true

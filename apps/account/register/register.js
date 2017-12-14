@@ -20,7 +20,6 @@
            $http.post(url, data, {
                withCredentials: true
            }).then(function (response) {
-               console.log(response);
                if (response.data.status == RESPONSE_STATUS_SUCCESS) {
                    vm.account = '';
                    vm.pass1 = '';

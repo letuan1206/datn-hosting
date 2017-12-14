@@ -1,7 +1,7 @@
 {
-  "name": "Flatkit",
+  "name": "E-WEB",
   "version": "1.2.0",
-  "description": "Bootstrap 4 Web App UI Kit with AngularJS",
+  "description": "WEB SITE MU ONLINE CPANEL",
   "scripts": {
     "start": "node node_modules/http-server/bin/http-server -o",
     "lint:watch": "esw --watch"
