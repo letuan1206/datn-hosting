@@ -194,7 +194,6 @@
               start: new Date(y, m, d),
               className: ['white b-l-info b-l-2x']
             });
-            console.log(vm.events);
           };
 
           /* remove event */

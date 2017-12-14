@@ -52,7 +52,6 @@
                 pass2: $scope.pass2,
                 item_id: $scope.itemChoose.item_id
             };
-            console.log(data);
     
             $http.post(url, data, set_header(), {
                 withCredentials: true

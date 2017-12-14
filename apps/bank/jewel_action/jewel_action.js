@@ -53,12 +53,9 @@
                 action: $scope.myAct
             };
 
-            console.log(data);
-
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                 $scope.res = response.data;
                 $scope.quality = '';
             }, function (err) {

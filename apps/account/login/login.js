@@ -11,7 +11,6 @@
         $scope.submit = function () {
             $scope.loging = true;
             $.getJSON('//freegeoip.net/json/?callback=?', function(result) {
-                console.log(result);
                 var url = SERVER_API + "login";
                 var data = {
                     account: vm.account,
@@ -36,7 +35,6 @@
                             withCredentials: true
                         }).then(function (res) {
                             $rootScope.bankInfo = res.data.data;
-                            console.log($rootScope.bankInfo);
                             $window.sessionStorage.setItem(LOCALSTORAGE_BANKINFO, JSON.stringify(res.data.data));
                         }, function (err) {
                             $scope.isServerError = false;

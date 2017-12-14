@@ -22,7 +22,7 @@
         checkLogin();
         // config
         vm.app = {
-            name: 'Flatkit',
+            name: 'E-WEB',
             version: '1.2.0',
             // for chart colors
             color: {
@@ -49,6 +49,11 @@
                 container: false,
                 themeID: 1,
                 bg: ''
+            },
+            url: {
+                home: 'http://hoangtueck94.com',
+                fanpage: 'http://hoangtueck94.com',
+                forum: 'http://hoangtueck94.com'
             }
         };
 
@@ -142,7 +147,6 @@
             $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
             
             if ($rootScope.isLogin && $rootScope.charChoose === null) {
-                console.log('vao day');
                 $rootScope.charChoose = $rootScope.listChar[0];
             }
         }

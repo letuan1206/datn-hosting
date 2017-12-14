@@ -32,7 +32,6 @@
         $scope.getResetInfo();
         // $scope.resetChoose = 'reset';
         $scope.selectReset = function () {
-            console.log($scope.resetChoose)
         }
 
         $scope.reset = function () {
