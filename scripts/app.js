@@ -24,6 +24,7 @@
         'oc.lazyLoad',
         'cfp.loadingBar',
         'toastr',
-        'datatables'
+        'datatables',
+        'vcRecaptcha'
       ]);
 })();

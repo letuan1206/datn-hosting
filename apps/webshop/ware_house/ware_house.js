@@ -2,7 +2,7 @@
  * Created by TuanLe on 10/10/2017.
  * Website: http://hoangtueck94.com
  */
-(function() {
+(function () {
     angular
         .module('app')
         .controller('WareHouseCtrl', WareHouseCtrl);

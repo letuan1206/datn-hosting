@@ -4,9 +4,20 @@
         .module('app')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$rootScope', '$http', '$filter', '$window', '$state'];
-    function LoginCtrl($scope, $rootScope, $http, $filter, $window, $state) {
+    LoginCtrl.$inject = ['$scope', '$rootScope', '$http', '$filter', '$window', '$state', 'vcRecaptchaService'];
+    function LoginCtrl($scope, $rootScope, $http, $filter, $window, $state, vcRecaptchaService) {
         var vm = $scope;
+
+        $scope.loging = true;
+
+        $scope.setResponse = function (response) {
+            $scope.loging = false;
+            // send the `response` to your server for verification.
+        };
+
+        $scope.cbExpiration = function () {
+            $scope.loging = true;
+        };
 
         $scope.submit = function () {
             $scope.loging = true;

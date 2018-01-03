@@ -7,10 +7,11 @@
     "lint:watch": "esw --watch"
   },
   "keywords": [],
-  "repository": "https://gitlab.com/Heyflat/flatkit.git",
+  "repository": "https://github.com/tuanleanh1994/datn-hosting.git",
   "author": "Flatfull",
   "license": "Envato REGULAR LICENSE",
   "dependencies": {
+    "angular-recaptcha": "^4.1.2",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
