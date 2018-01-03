@@ -4,13 +4,24 @@
         .module('app')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$rootScope', '$http', '$filter', '$window', '$state'];
-    function LoginCtrl($scope, $rootScope, $http, $filter, $window, $state) {
+    LoginCtrl.$inject = ['$scope', '$rootScope', '$http', '$filter', '$window', '$state', 'vcRecaptchaService'];
+    function LoginCtrl($scope, $rootScope, $http, $filter, $window, $state, vcRecaptchaService) {
         var vm = $scope;
 
+        $scope.loging = true;
+
+        $scope.setResponse = function (response) {
+            $scope.loging = false;
+            // send the `response` to your server for verification.
+        };
+
+        $scope.cbExpiration = function () {
+            $scope.loging = true;
+        };
+
         $scope.submit = function () {
+            $scope.loging = true;
             $.getJSON('//freegeoip.net/json/?callback=?', function(result) {
-                console.log(result);
                 var url = SERVER_API + "login";
                 var data = {
                     account: vm.account,
@@ -35,7 +46,6 @@
                             withCredentials: true
                         }).then(function (res) {
                             $rootScope.bankInfo = res.data.data;
-                            console.log($rootScope.bankInfo);
                             $window.sessionStorage.setItem(LOCALSTORAGE_BANKINFO, JSON.stringify(res.data.data));
                         }, function (err) {
                             $scope.isServerError = false;
@@ -75,8 +85,10 @@
                         // }, function (err) {
                         //     $scope.isServerError = false;
                         // });
+                        $scope.loging = false;
 
                     } else if (response.data.status === RESPONSE_STATUS_ERROR) {
+                        $scope.loging = false;
                         $scope.message = response.data.message;
                     }
                 }, function (err) {

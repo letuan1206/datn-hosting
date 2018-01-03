@@ -1,0 +1,85 @@
+<div ng-if="res.status == 0" class="alert alert-danger ng-binding" ng-bind-html="res.message"></div>
+<div ng-if="res.status == 1" class="alert alert-success ng-binding" ng-bind-html="res.message"></div>
+
+<div class="box">
+    <div class="box-header">
+        <h2>Nạp thẻ</h2>
+    </div>
+    <div class="box-divider m-a-0"></div>
+    <div class="alert ng-isolate-scope alert-warning alert-dismissible m-3">
+        1. Bạn có thể sử dụng thẻ <strong>Gate của FPT, thẻ Mobi, thẻ Vina, thẻ Viettel</strong> để nạp bạc.<br> 2. Bạn sẽ
+        được nhận bạc ngay khi nạp thẻ thành công.<br>
+    </div>
+    <div class="box-body">
+        <div class="form-group row">
+            <label class="col-sm-3 _600 text-right pt-2">Loại thẻ nạp</label>
+            <div class="col-sm-7">
+                <select class="form-control" ng-model="cardType">
+                    <option value="" selected="">---Mời bạn chọn loại thẻ</option>
+                    <option value="GATE">Thẻ Gate</option>
+                    <option value="Viettel">Thẻ Viettel</option>
+                    <option value="MobiPhone">Thẻ Mobi</option>
+                    <option value="VinaPhone">Thẻ Vina</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 _600 text-right pt-2">Seri thẻ</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" ng-model="cardSeri" value="" placeholder="Seri thẻ">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 _600 text-right pt-2">Mã thẻ</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" ng-model="cardCode" value="" placeholder="Mật khẩu thẻ">
+            </div>
+        </div>
+    </div>
+    <div class="dker p-a text-center">
+        <button type="submit" class="btn btn-info" ng-click="submit()">Nạp thẻ</button>
+    </div>
+</div>
+
+<div class="alert alert-info">Để quá trình nạp thẻ diễn ra thành công, bạn hãy chờ cho đến khi có kết quả báo về. <br> Nếu báo lỗi và không nhận được bạc
+    hãy nhắn tin SMS báo trực tiếp cho số: <button type="button" class="btn btn-sm btn-info"><i class="fa fa-envelope append-icon"></i> 0904.45.44.44</button><br>    _ Bạn chú ý trong SMS cần ghi rõ tên Server và tên tài khoản, mã thẻ, hoặc báo lại tại diễn đàn, chúng tôi sẽ sớm giải
+    quyết.
+</div>
+
+<div class="box mt-4">
+    <div class="box-header">
+        <h2>Tỉ giá nạp thẻ</h2>
+    </div>
+    <div class="box-body">
+        <table class="table table-striped table-bordered table-hover table-heading no-border-bottom" id="customers">
+            <thead>
+                <tr>
+                    <th class="text-center">Loại thẻ</th>
+                    <th class="text-center">1.000k</th>
+                    <th class="text-center">500k</th>
+                    <th class="text-center">300k</th>
+                    <th class="text-center">200k</th>
+                    <th class="text-center">100k</th>
+                    <th class="text-center">50k</th>
+                    <th class="text-center">30k</th>
+                    <th class="text-center">20k</th>
+                    <th class="text-center">10k</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="value in listCard">
+                    <td class="text-center"><strong>{{value.type}}</strong></td>
+                    <td class="text-center">{{value.k1000000 | number}}</td>
+                    <td class="text-center">{{value.k500000 | number}}</td>
+                    <td class="text-center">{{value.k300000 | number}}</td>
+                    <td class="text-center">{{value.k200000 | number}}</td>
+                    <td class="text-center">{{value.k100000 | number}}</td>
+                    <td class="text-center">{{value.k50000 | number}}</td>
+                    <td class="text-center">{{value.k30000 | number}}</td>
+                    <td class="text-center">{{value.k20000 | number}}</td>
+                    <td class="text-center">{{value.k10000 | number}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Reset ngày / tháng</div>
-                                        <div class="text-info2"> 0 / 0</div>
+                                        <div class="text-info2"> {{charChoose.Reset_Day}} / {{charChoose.Reset_Month}}</div>
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Level</div>
@@ -41,15 +41,15 @@
                                         </div>
                                     </div>
                                     <div class="list-row">
-                                        <div class="label-info2">Point dư / Point dự trữ</div>
-                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}} / {{charChoose.Point_Reserve | number}}</div>
+                                        <div class="label-info2">Point dư</div>
+                                        <div class="text-info2">{{charChoose.LevelUpPoint | number}}</div>
                                     </div>
-                                    <div class="list-row">
+                                    <!-- <div class="list-row">
                                         <div class="label-info2">PP / PP+</div>
                                         <div class="text-info2">
                                             /
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="list-col">
                                     <div class="list-row">
@@ -62,11 +62,12 @@
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2">Bùa Exp</div>
-                                        <div class="text-info2"> {{charChoose.SealItem}} <a class="nav-link label blue-500 ml-2" ui-sref="app.character.clear-pk">Mua bùa</a></div>
+                                        <div class="text-info2"> {{charChoose.SealItem}} <a ng-if="charChoose.SealItem == 0" class="nav-link label blue-500 ml-2"
+                                                ui-sref="app.character.clear-pk">Mua bùa</a></div>
                                     </div>
                                     <div class="list-row">
                                         <div class="label-info2"></div>
-                                        <div class="text-info2"> {{charChoose.SCFSealTime | date: 'dd/MM/yyyy - hh:mm'}}
+                                        <div class="text-info2"> {{charChoose.SCFSealTime}}
                                         </div>
                                     </div>
                                     <div class="list-row">
@@ -81,7 +82,7 @@
                             </ul>
 
                             <div class="m-b btn-groups">
-
+                                <a class="btn btn-outline b-danger text-danger btn-xs" ui-sref="app.character.resets">Reset nhân vật</a>
                                 <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.delete-inventory">Xóa
                                     đồ nhân vật</a>
                                 <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.add-point">Cộng
@@ -96,10 +97,8 @@
                                     về làng</a>
                                 <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.clear-pk">Rửa
                                     tội</a>
-                                <!--<a class="btn btn-outline b-info text-info btn-xs">Dồn Reset</a>-->
+                                <a class="btn btn-outline b-info text-info btn-xs" ui-sref="app.character.change-class">Đổi giới tính</a>
                             </div>
-                            <!--<p>Thuộc chủng tộc Thương Thủ...</p>-->
-                            <a class="btn vd_btn vd_bg-green btn-sm" ui-sref="char.reset({name: charChoose.Name})">Reset</a>
                         </div>
                     </div>
                 </li>

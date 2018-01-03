@@ -373,7 +373,6 @@ function get_char(name) {
         return obj.Name === name;
     })[0];
 
-    console.log(obj);
     return obj;
 }
 

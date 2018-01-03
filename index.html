@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <title>Flatkit - AngularJS Version | Bootstrap 4 Web App Kit with AngularJS</title>
+  <title>Quản lý tài khoản MU</title>
   <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,24 +27,29 @@
   <!-- build:css assets/styles/app.min.css -->
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
   <link rel="stylesheet" href="assets/styles/customs.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="assets/styles/theme.min.css" type="text/css" /> -->
   <!-- endbuild -->
   <link rel="stylesheet" href="assets/styles/font.css" type="text/css" />
   <!-- <base href="/">   -->
   <link rel='stylesheet' href='assets/angular-loading-bar/loading-bar.min.css' type='text/css' media='all' />
   <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+  <link rel="stylesheet" href="libs/datatables/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.5.6/css/angular-datatables.min.css"
+  />
 </head>
+
 <body ng-app="app" ng-controller="AppCtrl" class="{{app.setting.bg}}" ng-class="{'container': app.setting.boxed, 'ie': isIE,'smart': isSmart}">
   <div class="app" ui-view></div>
-<!-- build:js scripts/app.angular.js -->
-<!-- jQuery -->
+  <!-- build:js scripts/app.angular.js -->
+  <!-- jQuery -->
   <script src="libs/jquery/jquery/dist/jquery.js"></script>
-<!--JS-->
+  <!--JS-->
   <script src="libs/js/moment/moment.js"></script>
-<!-- Bootstrap -->
+  <!-- Bootstrap -->
   <script src="libs/jquery/tether/dist/js/tether.min.js"></script>
   <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
   <script src="libs/jquery/PACE/pace.min.js"></script>
-<!-- Angular -->
+  <!-- Angular -->
   <script src="libs/angular/angular/angular.js"></script>
   <script src='libs/angular/angular-loading-bar/loading-bar.min.js'></script>
   <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
@@ -51,7 +57,8 @@
   <script src="libs/angular/angular-resource/angular-resource.js"></script>
   <script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
   <script src="libs/angular/angular-touch/angular-touch.js"></script>
-
+  <script src="libs/datatables/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.5.6/angular-datatables.min.js"></script>
   <!-- router -->
   <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
   <!-- storage -->
@@ -60,8 +67,10 @@
   <script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
   <!-- lazyload -->
   <script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+  <script src="libs/socket.io/socket.io.min.js"></script>
+  <script src="libs/angular/angular-recaptcha/release/angular-recaptcha.min.js"></script>
 
-<!-- App -->
+  <!-- App -->
   <script src="scripts/app.js"></script>
   <script src="scripts/config.js"></script>
   <script src="scripts/app.function.js"></script>
@@ -69,19 +78,22 @@
   <script src="scripts/config.router.js"></script>
   <script src="scripts/app.ctrl.js"></script>
 
+
   <script src="scripts/directives/currencyInput.js"></script>
+  <script src="scripts/directives/scrollBottom.js"></script>
   <!-- <script src="scripts/directives/ui-jp.js"></script> -->
   <script src="scripts/directives/ui-nav.js"></script>
   <script src="scripts/directives/ui-fullscreen.js"></script>
   <script src="scripts/directives/ui-scroll-to.js"></script>
   <script src="scripts/directives/ui-toggle-class.js"></script>
   <script src="scripts/directives/ui-include.js"></script>
-  
+
   <script src="scripts/filters/fromnow.js"></script>
 
   <script src="scripts/services/ngstore.js"></script>
   <script src="scripts/services/ui-load.js"></script>
   <script src="scripts/services/palette.js"></script>
-<!-- endbuild -->
+  <!-- endbuild -->
 </body>
+
 </html>

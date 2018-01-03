@@ -2,7 +2,7 @@
  * Created by TuanLe on 10/10/2017.
  * Website: http://hoangtueck94.com
  */
-(function() {
+(function () {
     angular
         .module('app')
         .controller('WareHouseCtrl', WareHouseCtrl);
@@ -21,7 +21,6 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                 if (response.data.status == RESPONSE_STATUS_SUCCESS) {
                     // $scope.message = "<font color=\"green\">" + response.data.message + "</font>";
                     $scope.listItem = response.data.data;
@@ -81,7 +80,6 @@
         };
 
         $scope.submit = function () {
-            console.log($scope.actionType);
             $scope.listItemChoose = [];
 
             switch ($scope.actionType) {
@@ -103,7 +101,6 @@
         };
 
         $scope.postItemToMarket = function () {
-            console.log($scope.listItemChoose);
 
             if ($scope.listItemChoose.length === 0) {
                 $('#sellItemToMarket').modal('hide');
@@ -135,7 +132,6 @@
                 list_item: list_item
             };
 
-            console.log(data);
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {

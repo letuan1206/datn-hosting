@@ -1,0 +1,26 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Bảng xếp hạng Reset trong ngày {{today}}</h2>
+    </div>
+</div>
+
+<div>
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover stripe" id="customers">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Reset</th>
+                <th class="text-center">Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="value in rankData">
+                <td class="text-center">{{$index + 1}}</td>
+                <td class="text-center"><strong>{{value.name}}</strong></td>
+                <td class="text-center">{{value.Resets}}</td>
+                <td class="text-center">{{value.Class}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -5,57 +5,235 @@
 </div>
 <div class="white r box-shadow-z0 b">
     <div class="row no-gutter text-primary-hover b-t">
-        <div class="col-md-2 b-r" tooltip-placement="bottom"
-             uib-tooltip="Cash Shop"><a class="p-a block text-center" ui-toggle-class="">
-            <i class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Group</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm none"></i> <i
-                class="material-icons md-24 text-danger m-v-sm inline"></i> <span class="block">Like</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Chat</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Group</span></a></div>
-        <div class="col-md-2 b-r"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm none"></i> <i
-                class="material-icons md-24 text-danger m-v-sm inline"></i> <span class="block">Like</span></a></div>
-        <div class="col-md-2"><a class="p-a block text-center" ui-toggle-class=""><i
-                class="material-icons md-24 text-muted m-v-sm inline"></i> <i
-                class="material-icons md-24 text-danger m-v-sm none"></i> <span class="block">Chat</span></a></div>
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Cash Shop">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-money text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-money text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.wcoin | number}}</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Bạc khóa">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-credit-card text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-credit-card text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.bank_sliver_lock | number}}</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Jewel khóa">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-gavel text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-gavel text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.bank_jewel_lock | number}}</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Phúc duyên">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-paypal text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-paypal text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.point_bonus | number}}</span>
+            </a>
+        </div>
+        <div class="col-md-2 b-r" tooltip-placement="top" uib-tooltip="Điểm PO (Point Online)">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-pinterest-p text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-pinterest-p text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.point_online | number}}</span>
+            </a>
+        </div>
+        <div class="col-md-2" tooltip-placement="top" uib-tooltip="Thời gian vào phòng VIP">
+            <a class="p-a block text-center" ui-toggle-class="">
+                <i class="fa fa-plane text-2x md-24 text-muted m-v-sm inline"></i>
+                <i class="fa fa-plane text-2x md-24 text-danger m-v-sm none"></i>
+                <span class="block">{{res.data.SCFVipDays | number}}</span>
+            </a>
+        </div>
     </div>
 </div>
-<div class="row pt-3">
+<div class="row pt-3 m-b">
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box blue-600 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_sliver |
-                    number}} Bạc">
-                <div class="text-right p-4 text-white text-md"><em><strong>{{res.data.bank_sliver | number}}</strong></em>
-                    <i class="text-lg pl-2 fa fa-btc"></i></div>
-            </div>
-        </a>
+        <div class="vd_status-widget vd_bg-blue widget">
+            <a class="panel-body" ui-sref="app.card.card-phone" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_sliver |
+                number}} Bạc">
+                <div class="clearfix">
+                    <span class="menu-value">
+                        <i class="fa fa-btc"></i>
+                    </span>
+                    <span class="menu-icon">
+                        {{res.data.bank_sliver | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box orange-400 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_jewel |
-                    number}} Jewel">
-                <div class="text-right p-4 text-white text-md"><em><strong>{{res.data.bank_jewel | number}}</strong></em>
-                    <i class="text-lg pl-2 fa fa-diamond"></i></div>
-            </div>
-        </a>
+        <div class="vd_status-widget vd_bg-yellow widget">
+            <a class="panel-body" ui-sref="app.bank.jewel-action" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_jewel |
+                number}} Jewel">
+                <div class="clearfix">
+                    <span class="menu-value">
+                        <i class="text-lg pl-2 fa fa-diamond"></i>
+                    </span>
+                    <span class="menu-icon">
+                        {{res.data.bank_jewel | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="col-xs-4 col-sm-12 col-md-4">
-        <a>
-            <div class="box red-600 bank-hover" tooltip-placement="bottom"
-                 uib-tooltip="{{res.data.bank_zen |
-                    number}} triệu Zen">
-                <div class="text-right p-4 text-white text-md"><em><strong class="pr-2">{{res.data.bank_zen |
-                    number}}</strong></em>
-                    <i class="text-lg fa fa-empire fa-spin"></i></div>
+        <div class="vd_status-widget vd_bg-red widget" tooltip-placement="bottom" uib-tooltip="{{res.data.bank_zen |
+            number}} triệu Zen">
+            <a class="panel-body" ui-sref="app.bank.jewel-action">
+                <div class="clearfix">
+                    <span class="menu-value">
+                        <i class="text-lg fa fa-empire fa-spin"></i>
+                    </span>
+                    <span class="menu-icon">
+                        </i>{{res.data.bank_zen | number}}
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row m-b">
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-blue">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-btc"></i> Bạc
+                </h2>
             </div>
-        </a>
+            <div class="box-body">
+                <p class="m-a-0">Đây là tiền tệ chính của MU, để có bạc các bạn có thể sử dụng trang
+                    <a class="text-blue" ui-sref="app.card.card-phone">Nạp thẻ</a>. Bạn sử dụng bạc để
+                    <a class="text-blue" ui-sref="app.bank.transfer">trao đổi buôn bán</a> với các thành viên khác</p>
+                <p>Bạc được phép
+                    <a class="text-blue" ui-sref="app.bank.transfer">giao dịch</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-warn">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-diamond"></i>Jewel
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Bạn
+                    <a class="text-blue" ui-sref="app.bank.jewel-action">gửi ngọc</a> từ Game vào Bank và
+                    <a class="text-blue" ui-sref="app.bank.jewel-action">rút</a> về sử dụng thay vì cầm trên người. Jewel quy đổi thành ngọc ước nguyện (Bless), ngọc tâm linh
+                    (Soul) ... </p>
+                <p>Jewel được phép
+                    <a class="text-blue" ui-sref="app.bank.transfer">giao dịch</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-warning">
+                <h2>
+                    <i class="text-lg fa fa-empire fa-spin"></i>Zen
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Là tiền tệ mua đồ tại các shop (NPC) trong Game, reset thường... Zen có được khi bạn tiêu diệt quái vật.
+                    Bạn
+                    <a class="text-blue" ui-sref="app.bank.jewel-action">gửi trên Bank</a> cho thuận tiện lưu trữ. </p>
+                <p>Zen được phép
+                    <a class="text-blue" ui-sref="app.bank.transfer">giao dịch</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row m-b">
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-success">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-money"></i> Cash
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Là tiền mua đồ hỗ trợ trong Game (bạn bấm nút X khi đang trong game), được
+                    <a class="text-blue" ui-sref="app.bank.change-money">đổi ra từ bạc</a>, Cash không thể chuyển khoản hoặc chuyển ngược lại thành bạc.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-danger">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-paypal"></i> Phúc Duyên
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Tổng số điểm Phúc Duyên của các nhân vật trong account, kiếm bằng cách reset nhân vật. Phúc Duyên là điểm
+                    khó kiếm nhất, và cũng quan trọng nhất trong MU Vương Quyền</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-dark">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-pinterest-p"></i> P.O
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">1 điểm P.O (Point Online) = 10 phút chơi trong Game (dưới 10 phút KHÔNG tính điểm). P.O không thể chuyển
+                    sang account khác. Bạn chỉ được dự trữ tối đa
+                    <strong>2k P.O</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row m-b">
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-primary">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-credit-card"></i> Bạc Khóa
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Là bạc được tặng trong các dịp sự kiện, không thể trao đổi giao dịch, sẽ bị xóa vào ngày cuối cùng mỗi tháng.
+                    Bạc khóa dùng để: Mua Cashshop Web</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-dark">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-gavel"></i> Jewel Khóa
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Bạn nhặt được đồ trong game, có thể đem đổi Jewel khóa từ Hòm đồ ảo tùy theo giá trị món đồ. Jewel khóa dùng
+                    để: Up đồ, không thể giao dịch</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <div class="box-header b-t b-t-2x b-t-info">
+                <h2>
+                    <i class="text-lg pl-2 fa fa-plane"></i> VIP
+                </h2>
+            </div>
+            <div class="box-body">
+                <p class="m-a-0">Thời gian còn lại bạn được chơi trong phòng VIP, tính theo phút, được mua bằng PO. Chơi trong phòng VIP có
+                    exp gấp đôi phòng thường, tỉ lệ rớt đồ cao.</p>
+            </div>
+        </div>
     </div>
 </div>

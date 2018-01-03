@@ -22,7 +22,7 @@
         checkLogin();
         // config
         vm.app = {
-            name: 'Flatkit',
+            name: 'E-WEB',
             version: '1.2.0',
             // for chart colors
             color: {
@@ -40,15 +40,20 @@
             },
             setting: {
                 theme: {
-                    primary: 'primary',
-                    accent: 'accent',
-                    warn: 'warn'
+                    primary: 'blue',
+                    accent: 'indigo',
+                    warn: 'primary'
                 },
                 folded: false,
                 boxed: true,
                 container: false,
                 themeID: 1,
                 bg: ''
+            },
+            url: {
+                home: 'http://hoangtueck94.com',
+                fanpage: 'http://hoangtueck94.com',
+                forum: 'http://hoangtueck94.com'
             }
         };
 
@@ -136,13 +141,12 @@
                 $rootScope.bankInfo = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_BANKINFO));
                 $rootScope.listChar = get_list_char();
             } else {
-                $state.go('app.login');
+                setTimeout(() => { $state.go('app.login') }, 0);
             }
 
             $rootScope.charChoose = JSON.parse(sessionStorage.getItem(LOCALSTORAGE_CHARCHOOSE));
             
             if ($rootScope.isLogin && $rootScope.charChoose === null) {
-                console.log('vao day');
                 $rootScope.charChoose = $rootScope.listChar[0];
             }
         }

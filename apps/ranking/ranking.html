@@ -1,0 +1,62 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Xếp hạng nhân vật</h2>
+    </div>
+</div>
+<div class="flex-container">
+    <div class="flex-item">
+        <img ng-click="getRankAll('all')" src="https://lh3.googleusercontent.com/dDtcVQOVkLT0uESuCpRhVDQvtE2KfbOHJTUMCACs9LakKeODMwAa53dPqHGzP5hJu9aB=h556" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(0)" src="assets/images/characters/dw.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(16)" src="assets/images/characters/dk.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(32)" src="assets/images/characters/elf.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(48)" src="assets/images/characters/mg.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(64)" src="assets/images/characters/dl.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(80)" src="assets/images/characters/sm.jpg" class="flex-item-image">
+    </div>
+    <div class="flex-item">
+        <img ng-click="getRankAll(96)" src="assets/images/characters/rf.jpg" class="flex-item-image">
+    </div>
+</div>
+
+<div>
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover stripe" id="customers">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Relife</th>
+                <th class="text-center">Reset</th>
+                <th class="text-center">Level</th>
+                <th class="text-center">Level UP Cuối</th>
+                <th class="text-center">Class</th>
+                <th class="text-center">Đổi Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in rankData">
+                <td class="text-center">{{ $index + 1 }}</td>
+                <td class="text-center" tooltip-placement="left-bottom" tooltip-append-to-body="true" uib-tooltip="Reset lần cuối lúc {{item.Resets_Time}}">
+                    <strong>{{ item.name }}</strong>
+                </td>
+                <td class="text-center">{{ item.Relifes}}</td>
+                <td class="text-center">{{ item.Resets}}</td>
+                <td class="text-center">{{ item.cLevel }}</td>
+                <td class="text-center">{{ item.LevelUp_Time}}</td>
+                <td class="text-center">{{ item.Class}}</td>
+                <td class="text-center">{{ item.Class}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

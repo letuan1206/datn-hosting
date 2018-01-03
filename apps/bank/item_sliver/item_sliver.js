@@ -37,7 +37,6 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                $scope.res = response.data;
                $scope.pass2 = '';
             }, function (err) {
@@ -60,7 +59,6 @@
             $http.post(url, data, set_header(), {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
                 $scope.res = response.data;
                 $scope.pass2 = '';
             }, function (err) {

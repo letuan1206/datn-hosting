@@ -1,0 +1,29 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Các thành viên trong Guild {{guildName}}</h2>
+    </div>
+</div>
+
+<div>
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover" id="customers">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Thành viên</th>
+                <th class="text-center">Relife</th>
+                <th class="text-center">Reset</th>
+                <th class="text-center">Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="value in rankData">
+                <td class="text-center">{{$index + 1}}</td>
+                <td class="text-center" ng-if="value.G_Level === '1'"><strong>{{value.Name}}</strong> (Chủ hội)</td>
+                <td class="text-center" ng-if="value.G_Level === null">{{value.Name}}</td>
+                <td class="text-center">{{value.Relifes}}</td>
+                <td class="text-center">{{value.Resets}}</td>
+                <td class="text-center">{{value.cLevel}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

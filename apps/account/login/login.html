@@ -9,8 +9,7 @@
             <div class="form-group row">
                 <label class="col-sm-3 form-control-label">Tài khoản</label>
                 <div class="col-sm-9">
-                    <input type="text" ng-model="account" class="form-control" maxlength="10" required
-                           placeholder="Tài khoản">
+                    <input type="text" ng-model="account" class="form-control" maxlength="10" required placeholder="Tài khoản">
                     <em class="text-muted">Vui lòng gõ đúng ký tự chữ HOA chữ thường.</em>
                 </div>
             </div>
@@ -21,17 +20,32 @@
                     <input type="password" ng-model="pass" class="form-control" placeholder="Mật khẩu">
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 form-control-label"></label>
+                <div class="col-sm-9">
+                    <div vc-recaptcha on-success="setResponse(response)" on-expire="cbExpiration()"></div>
+                </div>
+            </div>
         </div>
         <div class="dker p-a text-right">
-            <button type="submit" class="btn btn-info">Submit</button>
+            <button type="submit" class="btn btn-info" ng-disabled="loging">Submit</button>
         </div>
     </div>
 
     <div class="register-panel text-center font-semibold ng-scope">
-        <a ui-sref="app.forgot-pass"><span class="menu-icon"><i class="fa fa-key"></i> QUÊN MẬT KHẨU</span></a>
+        <a ui-sref="app.forgot-pass">
+            <span class="menu-icon">
+                <i class="fa fa-key"></i> QUÊN MẬT KHẨU</span>
+        </a>
         -
-        <a ui-sref="app.register">TẠO ACCOUNT MỚI<span class="menu-icon"><i class="fa fa-angle-double-right fa-fw"></i></span></a>
-        <br><img src="assets/images/star_shining.gif" height="10px">
+        <a ui-sref="app.register">TẠO ACCOUNT MỚI
+            <span class="menu-icon">
+                <i class="fa fa-angle-double-right fa-fw"></i>
+            </span>
+        </a>
+        <br>
+        <img src="assets/images/star_shining.gif" height="10px">
         <!--<a class="nav-link label accent" href="http://themeforest.net/user/flatfull/portfolio?ref=flatfull">Get it</a>-->
     </div>
 </form>

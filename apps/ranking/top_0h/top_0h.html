@@ -1,0 +1,32 @@
+<div class="box">
+    <div class="box-header">
+        <h2>Bảng xếp hạng lúc 0h00 ngày {{yesterday}}</h2>
+    </div>
+</div>
+
+<div>
+    <table datatable="ng" dt-options="dtOptions" class="row-border hover stripe" id="customers">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Relife</th>
+                <th class="text-center">Reset</th>
+                <th class="text-center">Level</th>
+                <th class="text-center">Class</th>
+                <th class="text-center">Time Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="value in rankData">
+                <td class="text-center">{{value.Top_0h}}</td>
+                <td class="text-center"><strong>{{value.Name}}</strong></td>
+                <td class="text-center">{{value.Relife_0h}}</td>
+                <td class="text-center">{{value.Reset_0h}}</td>
+                <td class="text-center">{{value.Level_0h}}</td>
+                <td class="text-center">{{value.Class}}</td>
+                <td class="text-center">{{value.Level_Time_0h}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

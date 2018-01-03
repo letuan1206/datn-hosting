@@ -5,8 +5,8 @@
     <div class="box-divider m-a-0"></div>
     <div class="alert alert-info m-3">
         1. Rút đồ miễn phí: Hòm đồ ảo dùng để gửi đồ hoặc rút đồ vào <b>hòm đồ trong Game</b>
-        <br> 2. Gửi đồ mất phí : Bạn còn đồ ở <b>hòm đồ trong Game</b> muốn gửi lên <b>hòm đồ ảo</b>, <b><a
-            href="#auth/WarehouseIN.asp">click vào đây</a></b>
+        <br> 2. Bán đồ mất phí : Bạn còn đồ ở <b>hòm đồ trong Game</b> muốn bán trên <b>Chợ trời?</b>, <b><a
+            ui-sref="app.shop.super-market">click vào đây</a></b>
     </div>
     <div class="box-body">
         <h4>Mời bạn chọn đồ trong hòm đồ của acc: {{user.memb___id}}</h4>
@@ -68,11 +68,11 @@
 <div class="modal fade" id="sellItemToMarket" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-header-custom">
                 <h5 class="modal-title">Định giá đồ đưa lên chợ
                 </h5>
                 <div class="bootstrap-dialog-close-button" style="display: block;">
-                    <button class="close" data-dismiss="modal">×</button>
+                    <button class="close modal-header-custom" data-dismiss="modal">×</button>
                 </div>
             </div>
             <div class="modal-body">
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="p-a text-right">
+                <div class="text-right">
                     <button type="button" class="btn btn-success" ng-click="postItemToMarket()">
                         Đưa lên chợ
                     </button>
